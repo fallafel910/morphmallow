@@ -1,0 +1,108 @@
+# Translation of the WordPress plugin   by .
+# Copyright (C) 2010
+# This file is distributed under the same license as the  package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/specific-files-for-posts-and-pages\n"
+"POT-Creation-Date: 2010-12-11 11:09+0000\n"
+"PO-Revision-Date: 2010-12-11 05:16-0600\n"
+"Last-Translator: Daniel Imhoff <dwieeb@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: php/settings-page.php:79
+msgid "Could not delete file.  Response was"
+msgstr "Could not delete file.  Response was"
+
+#: php/settings-page.php:89
+msgid "Specific Files"
+msgstr "Specific Files"
+
+#: php/settings-page.php:92
+#, php-format
+msgid "The file directory is either missing or has incorrect permissions and I can't fix it! Please chmod all folders to 755 and all files to 644 in %s for this plugin to work correctly."
+msgstr "The file directory is either missing or has incorrect permissions and I can't fix it! Please chmod all folders to 755 and all files to 644 in %s for this plugin to work correctly."
+
+#: php/settings-page.php:95
+msgid "There was an error while uploading your CSS file. Remember, only files with extension .css are allowed. Please try again."
+msgstr "There was an error while uploading your CSS file. Remember, only files with extension .css are allowed. Please try again."
+
+#: php/settings-page.php:98
+msgid "There was an error while uploading your JS file. Remember, only files with extension .js are allowed. Please try again."
+msgstr "There was an error while uploading your JS file. Remember, only files with extension .js are allowed. Please try again."
+
+#: php/settings-page.php:104
+msgid "Information"
+msgstr "Information"
+
+#: php/settings-page.php:106
+#, php-format
+msgid "If you prefer to upload via FTP, upload your CSS files to %s and your JS files to %s."
+msgstr "If you prefer to upload via FTP, upload your CSS files to %s and your JS files to %s."
+
+#: php/settings-page.php:107
+msgid "However, deleting these files with your FTP client will <strong>not</strong> remove the references to them on the pages that call them. Use the delete buttons on this page to remove all references of a file."
+msgstr "However, deleting these files with your FTP client will <strong>not</strong> remove the references to them on the pages that call them. Use the delete buttons on this page to remove all references of a file."
+
+#: php/settings-page.php:120
+msgid "No CSS files to list"
+msgstr "No CSS files to list"
+
+#: php/settings-page.php:128
+msgid "Upload a CSS file"
+msgstr "Upload a CSS file"
+
+#: php/settings-page.php:135
+#: php/settings-page.php:166
+msgid "Upload file"
+msgstr "Upload file"
+
+#: php/settings-page.php:146
+msgid "List of JS files"
+msgstr "List of JS files"
+
+#: php/settings-page.php:151
+msgid "No JS files to list"
+msgstr "No JS files to list"
+
+#: php/settings-page.php:159
+msgid "Upload a JS file"
+msgstr "Upload a JS file"
+
+#: php/settings-page.php:176
+msgid "Specific Files Wordpress Plugin"
+msgstr "Specific Files Wordpress Plugin"
+
+#: specific-files.php:109
+msgid "Post-Specific CSS Files"
+msgstr "Post-Specific CSS Files"
+
+#: specific-files.php:110
+msgid "Page-Specific CSS Files"
+msgstr "Page-Specific CSS Files"
+
+#: specific-files.php:111
+msgid "Post-Specific JS Files"
+msgstr "Post-Specific JS Files"
+
+#: specific-files.php:112
+msgid "Page-Specific JS Files"
+msgstr "Page-Specific JS Files"
+
+#: specific-files.php:319
+msgid "Select the CSS files to include with this post."
+msgstr "Select the CSS files to include with this post."
+
+#: specific-files.php:385
+msgid "Select the JS files to include with this post."
+msgstr "Select the JS files to include with this post."
+
+#: specific-files.php:406
+msgid "You do not have sufficient permissions to access this page."
+msgstr "You do not have sufficient permissions to access this page."
+

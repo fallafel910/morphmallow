@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Brim LLC Commercial Extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Brim LLC Commercial Extension License
+ * that is bundled with this package in the file Brim_CacheWarmer-license.pdf.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.brimllc.com/license
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to support@brimllc.com so we can send you a copy immediately.
+ *
+ * @category   Brim
+ * @package    Brim_CacheWarmer
+ * @copyright  Copyright (c) 2011-2014 Brim LLC
+ * @license    http://ecommerce.brimllc.com/license
+ */
+-->
+<config>
+    <tabs>
+        <brim translate="label">
+            <label>Brim Extensions</label>
+            <sort_order>300</sort_order>
+        </brim>
+    </tabs>
+    <sections>
+        <brim_cachewarmer translate="label" module="brim_cachewarmer">
+            <class>separator-top</class>
+            <label>Cache Warmer</label>
+            <tab>brim</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>60</sort_order>
+            <show_in_default>1</show_in_default>
+            <groups>
+                <general translate="label">
+                    <label>General Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>100</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <fields>
+                        <enable translate="label">
+                            <label>Enable</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <comment><![CDATA[
+                            ]]></comment>
+                        </enable>
+                        <website>
+                            <label>Website</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>brim_cachewarmer/system_config_source_website</source_model>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <comment><![CDATA[
+                            ]]></comment>
+                        </website>
+                        <cron_schedule translate="label">
+                            <label>Cron Schedule</label>
+                            <frontend_type>text</frontend_type>
+                            <backend_model>brim_cachewarmer/system_config_backend_cron</backend_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <comment><![CDATA[
+                                Standard Cron Expression: 5 */2 * * *
+                                <br />
+                                Runs 5 past the hour every 2 hours.
+                            ]]></comment>
+                        </cron_schedule>
+                        <sources>
+                            <label>Sources</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>brim_cachewarmer/system_config_source_sources</source_model>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <comment><![CDATA[]]></comment>
+                        </sources>
+                        <concurrency translate="label">
+                            <label>Concurrency</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>brim_cachewarmer/system_config_source_concurrency</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <comment><![CDATA[
+                                Number of pages to warm simultaneously.  Higher the value, greater the load.  Raising this too
+                                high will affect site performance!
+                            ]]></comment>
+                        </concurrency>
+                        <flush translate="label">
+                            <label>Flush Before Crawl</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <comment><![CDATA[ ]]></comment>
+                        </flush>
+                        <debug translate="label">
+                            <label>Enable Debug Mode</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <comment><![CDATA[
+                                Logs urls crawled to var/brim-cache-warmer.log
+                            ]]></comment>
+                        </debug>
+                    </fields>
+                </general>
+                <help>
+                    <label>Help</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <comment><![CDATA[
+                        <h3>Get help when you need it</h3>
+                        <p>
+                            Checkout our <strong><a target="_blank" href="https://brimllc.zendesk.com/forums">Knowledge Base</a></strong>
+                            for answers to some common questions or <strong><a target="_blank" href="https://brimllc.zendesk.com/">Submit a Ticket</a></strong>
+                            if you need additional help.
+                        </p>
+                        <p>
+                            Make sure to follow <strong><a target="_blank" title="Brim on Twitter" href="http://twitter.com/brimllc">@brimllc</a></strong>
+                            on Twitter to not miss out on important product updates, news, and tips! </p>
+                        </p>
+                    ]]></comment>
+                </help>
+            </groups>
+        </brim_cachewarmer>
+    </sections>
+</config>

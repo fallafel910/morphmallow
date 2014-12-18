@@ -1,0 +1,13 @@
+[02-Jun-2014 18:49:50 UTC] PHP Parse error:  syntax error, unexpected '$_product' (T_VARIABLE) in /home/droldan/public_html/nextrendz/app/design/frontend/metros/jack/template/catalog/product/view.phtml on line 184
+[02-Jun-2014 18:51:49 UTC] PHP Parse error:  syntax error, unexpected '$_product' (T_VARIABLE) in /home/droldan/public_html/nextrendz/app/design/frontend/metros/jack/template/catalog/product/view.phtml on line 184
+[02-Jun-2014 18:51:58 UTC] PHP Parse error:  syntax error, unexpected '$_product' (T_VARIABLE) in /home/droldan/public_html/nextrendz/app/design/frontend/metros/jack/template/catalog/product/view.phtml on line 184
+[06-Jun-2014 15:27:12 UTC] PHP Parse error:  syntax error, unexpected ':' in /home/droldan/public_html/nextrendz/app/design/frontend/metros/jack/template/catalog/product/list.phtml on line 279
+[10-Jun-2014 14:25:19 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/droldan/public_html/nextrendz/app/design/frontend/metros/jack/template/catalog/product/m_list.phtml on line 51
+[10-Jun-2014 14:25:22 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/droldan/public_html/nextrendz/app/design/frontend/metros/jack/template/catalog/product/m_list.phtml on line 51
+[10-Jun-2014 14:25:24 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/droldan/public_html/nextrendz/app/design/frontend/metros/jack/template/catalog/product/m_list.phtml on line 51
+[10-Jun-2014 14:31:23 UTC] PHP Parse error:  syntax error, unexpected '$_productCollection' (T_VARIABLE) in /home/droldan/public_html/nextrendz/app/design/frontend/metros/jack/template/catalog/product/m_list.phtml on line 54
+[10-Jun-2014 14:31:25 UTC] PHP Parse error:  syntax error, unexpected '$_productCollection' (T_VARIABLE) in /home/droldan/public_html/nextrendz/app/design/frontend/metros/jack/template/catalog/product/m_list.phtml on line 54
+[10-Jun-2014 14:31:28 UTC] PHP Parse error:  syntax error, unexpected '$_productCollection' (T_VARIABLE) in /home/droldan/public_html/nextrendz/app/design/frontend/metros/jack/template/catalog/product/m_list.phtml on line 54
+[10-Jun-2014 14:31:38 UTC] PHP Parse error:  syntax error, unexpected '；' (T_STRING) in /home/droldan/public_html/nextrendz/app/design/frontend/metros/jack/template/catalog/product/m_list.phtml on line 53
+[10-Jun-2014 14:31:41 UTC] PHP Parse error:  syntax error, unexpected '；' (T_STRING) in /home/droldan/public_html/nextrendz/app/design/frontend/metros/jack/template/catalog/product/m_list.phtml on line 53
+[10-Jun-2014 14:31:42 UTC] PHP Parse error:  syntax error, unexpected '；' (T_STRING) in /home/droldan/public_html/nextrendz/app/design/frontend/metros/jack/template/catalog/product/m_list.phtml on line 53

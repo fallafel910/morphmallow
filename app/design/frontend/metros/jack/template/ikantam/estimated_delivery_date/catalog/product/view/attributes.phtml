@@ -1,0 +1,49 @@
+<?php
+/**
+ * iKantam LLC
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the iKantam EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://magento.ikantam.com/store/license-agreement
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade
+ * EstimatedDeliveryDate module to newer versions in the future.
+ *
+ * @category   Ikantam
+ * @package    Ikantam_EstimatedDeliveryDate
+ * @author     iKantam Team <support@ikantam.com>
+ * @copyright  Copyright (c) 2013 iKantam LLC (http://www.ikantam.com)
+ * @license    http://magento.ikantam.com/store/license-agreement  iKantam EULA
+ */
+?>
+
+<?php
+    $_helper = $this->helper('catalog/output');
+    
+    if (Mage::helper('estimateddeliverydate')->isEnabled()) {
+        $_helper->addHandler('productAttribute', Mage::helper('estimateddeliverydate'));
+    }
+    
+    $_product = $this->getProduct()
+?><div class="estimated-delivery">
+<?php $daysCount = 0; $code = ''; ?>
+<?php if($_additional = $this->getAdditionalData()): ?>
+        <?php foreach ($_additional as $_data): ?>
+            <?php if ($_data['label'] == 'Estimated Delivery Date') { ?>
+
+                <?php #$estimated = explode('Estimated Delivery ', $_helper->productAttribute($_product, $_data['value'], $_data['code'])); ?>
+                <?php echo '<span>' . $_helper->productAttribute($_product, $_data['value'], $_data['code']) . '</span>' ?>
+		<?php $daysCount = $_data['value']; $code = $_data['code']; ?>
+            <?php } ?>
+        <?php endforeach; ?>
+    <script type="text/javascript">decorateTable('product-attribute-specs-table')</script>
+<?php endif;?>
+    <br/><img src="/media/custom/usps-img.jpg" />
+    <p><?php echo Mage::helper('estimateddeliverydate')->getTimeLeft($daysCount, $code); ?></p>
+    <!--p>Want it by Aug. 20? Order within 6 hrs 49 mins</p-->
+</div>

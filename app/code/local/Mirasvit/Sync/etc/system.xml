@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <tabs>
+        <sync translate="label">
+            <label>Sync</label>
+            <sort_order>1000</sort_order>
+            <class>sync</class>
+        </sync>
+    </tabs>
+    <sections>
+        <sync translate="label" module="sync">
+            <label>Sync</label>
+            <tab>sync</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>100</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general>
+                    <label>General Settings</label>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <sort_order>10</sort_order>
+                    <fields>
+                        <api_key translate="label">
+                            <label>Secret Key</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </api_key>
+                    </fields>
+                </general>
+            </groups>
+        </sync>
+    </sections>
+</config>

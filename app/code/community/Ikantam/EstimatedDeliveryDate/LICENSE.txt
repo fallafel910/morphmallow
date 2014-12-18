@@ -1,0 +1,29 @@
+iKantam EULA
+
+By using any iKantam product, you confirm that you have read and agreed to this license agreement.
+
+1. You may use the product on commercial or non-commercial websites by purchasing a license.
+
+2. A commercial website means:
+
+    any site which is built, owned or maintained by a profit-making person or organisation, even if the site does not generate revenue;
+    any site which generates revenue, even if it is otherwise non-commercial;
+    any government, government-agency or political-party websites.
+
+3. A non-commercial website means:
+
+    personal or hobby sites which generate no revenue (whether from advertising, commissions, sales or any other source);
+    websites owned and maintained by charitable or not-for-profit organisations;
+    websites owned and maintained by a school, college or other educational institution.
+
+4. The term "website" means a single website of a single person or organisation. (In most cases, that would be a single domain, although there could feasibly be multiple websites on a single domain e.g. through the use of subdomains). The website could be your own or a website you build/maintain for someone else.
+
+5. You may not sell, redistribute or offer for download any of our products in any form or in any medium, whether original or modified or for profit or not. Permission is granted to view/modify the source code for the purpose of enhancing or customizing the product.
+
+6. You can not agree to these terms on behalf of a third-party - if your own interest in the site is in any way commercial (for example, a freelancer being paid to build it) then a commercial license is always required, even if the site is for a non-commercial organisation.
+
+7. You agree not to use the product on illegal sites, or on pages which contain illegal material.
+
+8. The terms of this agreement shall be governed by English law, therefore you may not use the product at all in jurisdictions where this agreement is itself illegal, or where you are not empowered to enter into such an agreement.
+
+9. You guarantee not to hold iKantam responsible for any problems you may encounter, whether directly or indirectly caused by your use of any of our products.

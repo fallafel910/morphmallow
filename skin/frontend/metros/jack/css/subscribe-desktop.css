@@ -1,0 +1,168 @@
+@media (max-width: 640px){
+    .subscribe-page {
+        background: url("../images/subscribe-mobile-back.jpg") no-repeat 50% top #672061;
+        height: 1025px;
+    }
+    .subscribe-page:before{
+        content: '';
+        background: url("../images/spaghetti.png") no-repeat;
+        position: absolute;
+        top: 10px;
+        right: 25px;
+        width: 310px;
+        height: 194px;
+    }
+
+    .subscribe-page .wrap .subwrap{
+        margin: 0 25px;
+    }
+    .cms-page-view.cms-subscribe .main .subscribe-page .block.block-subscribe,
+    .cms-page-view.cms-newproducts .main .subscribe-page .block.block-subscribe{
+        border: 13px solid #fff;
+    }
+    .cms-page-view.cms-subscribe .main .subscribe-page .block.block-subscribe:before,
+    .cms-page-view.cms-newproducts .main .subscribe-page .block.block-subscribe:before{
+        background: url("../images/girl.png") no-repeat;
+        height: 250px;
+        width: 130px;
+        left: 40%;
+        top: -250px;
+    }
+    .cms-page-view.cms-subscribe .main .subscribe-page .block.block-subscribe:after,
+    .cms-page-view.cms-newproducts .main .subscribe-page .block.block-subscribe:after {
+        display: none;
+    }
+    .cms-page-view.cms-subscribe .main .subscribe-page .block.block-subscribe form .right,
+    .cms-page-view.cms-newproducts .main .subscribe-page .block.block-subscribe:after {
+        max-width: 150px;
+        text-align: center;
+    }
+    .cms-page-view.cms-subscribe .main .subscribe-page .block.block-subscribe form .mc-field-group,
+    .cms-page-view.cms-newproducts .main .subscribe-page .block.block-subscribe form .mc-field-group {
+        width: 68%;
+    }
+    .cms-page-view.cms-subscribe .main .subscribe-page .block.block-subscribe form input[type='email'],
+    .cms-page-view.cms-newproducts .main .subscribe-page .block.block-subscribe form input[type='email'] {
+        font-size: 22px;
+        height: 42px;
+        line-height: 42px;
+    }
+    .cms-page-view.cms-subscribe .main .subscribe-page .block.block-subscribe form input[type='submit'],
+    .cms-page-view.cms-newproducts .main .subscribe-page .block.block-subscribe form input[type='submit'] {
+        font-size: 23px;
+        height: 42px;
+        line-height: 42px;
+        border-radius: 0;
+        -webkit-appearance: none;
+        width: 100%;
+        background-color: #818181; /* layer fill content */
+    }
+    .cms-page-view.cms-subscribe .main .subscribe-page .block.block-subscribe p,
+    .cms-page-view.cms-newproducts .main .subscribe-page .block.block-subscribe p {
+        font-size: 28px;
+    }
+    .cms-page-view.cms-subscribe .main .subscribe-page .block.block-subscribe,
+    .cms-page-view.cms-newproducts .main .subscribe-page .block.block-subscribe {
+        padding: 20px 25px;
+    }
+    .cms-page-view.cms-subscribe .main .subscribe-page .group,
+    .cms-page-view.cms-newproducts .main .subscribe-page .group {
+        font-size: 22px;
+        text-align: left;
+        padding: 0;
+    }
+    .cms-page-view.cms-subscribe .main .subscribe-page .group span.label,
+    .cms-page-view.cms-newproducts .main .subscribe-page .group span.label {
+        display: block;
+        clear: both;
+        float: none;
+        background: none;
+        color: #fff;
+        box-shadow: none;
+        width: auto;
+        text-align: left;
+        margin: 0;
+    }
+    .cms-page-view.cms-subscribe .main .subscribe-page .group span,
+    .cms-page-view.cms-newproducts .main .subscribe-page .group span {
+        height: 43px;
+        line-height: 43px;
+        float: right;
+        width: 23.5%;
+        font-size: 22px;
+        margin: 0 0 7px 2%;
+    }
+    .cms-page-view.cms-subscribe .main .subscribe-page .group span:last-child,
+    .cms-page-view.cms-newproducts .main .subscribe-page .group span:last-child {
+        margin: 0;
+    }
+    .cms-page-view.cms-subscribe .main .subscribe-page .group p + p,
+    .cms-page-view.cms-newproducts .main .subscribe-page .group p + p {
+        width: 100%;
+        padding: 18px 25px;
+        font-size: 25px;
+        margin: 25px 0 0 -25px;
+        border-top: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+    }
+    .cms-page-view.cms-subscribe .main .footer,
+    .cms-page-view.cms-newproducts .main .footer{
+        font-size: 32px;
+    }
+    .cms-page-view.cms-subscribe .main .subscribe-page .group span:nth-child(4),
+    .cms-page-view.cms-newproducts .main .subscribe-page .group span:nth-child(4){
+        clear: none;
+    }
+}
+@media (max-width: 570px){
+
+        /*.cms-page-view.cms-subscribe .main .subscribe-page .group span{
+            width: 115px;
+        }*/
+        .cms-page-view.cms-subscribe .main .subscribe-page .block.block-subscribe form .mc-field-group,
+        .cms-page-view.cms-newproducts .main .subscribe-page .block.block-subscribe form .mc-field-group {
+            width: 67%;
+            margin-bottom: 3px;
+        }
+
+}
+@media (max-width: 550px){
+    .cms-page-view.cms-subscribe .main .subscribe-page .group span.label,
+    .cms-page-view.cms-newproducts .main .subscribe-page .group span.label {
+        float: left;
+    }
+    .cms-page-view.cms-subscribe .main .subscribe-page .group span:nth-child(4),
+    .cms-page-view.cms-newproducts .main .subscribe-page .group span:nth-child(4) {
+            clear: right;
+        }
+    .cms-page-view.cms-subscribe .main .subscribe-page .group span,
+    .cms-page-view.cms-newproducts .main .subscribe-page .group span {
+        margin-bottom: 7px;
+        margin-left: 3%;
+        width: 35%;
+    }
+}
+@media (max-width: 480px){
+
+    .cms-page-view.cms-subscribe .main .subscribe-page .block.block-subscribe form .right,
+    .cms-page-view.cms-newproducts .main .subscribe-page .block.block-subscribe form .right {
+        width: 100%;
+        max-width: 100%;
+    }
+    .cms-page-view.cms-subscribe .main .subscribe-page .block.block-subscribe form input[type='submit'],
+    .cms-page-view.cms-newproducts .main .subscribe-page .block.block-subscribe form input[type='submit'] {
+        width: 70%;
+        margin: 0 auto;
+    }
+    .cms-page-view.cms-subscribe .main .subscribe-page .block.block-subscribe form .mc-field-group,
+    .cms-page-view.cms-newproducts .main .subscribe-page .block.block-subscribe form .mc-field-group {
+        width: 100%;
+    }
+}
+@media (max-width: 450px){
+    .cms-page-view.cms-subscribe .main .subscribe-page .group span,
+    .cms-page-view.cms-newproducts .main .subscribe-page .group span {
+        width: 120px;
+        margin-left: 7px;
+    }
+}

@@ -1,0 +1,150 @@
+<?php
+$_product = $this->getProduct();
+$_helper = $this->helper('catalog/output');
+$imageUrl = $this->helper('catalog/image')->init($_product, 'image');
+if ($this->getMaxWidth() || $this->getMaxHeight()):
+		
+		 $imageUrl
+		->keepAspectRatio(true)
+		->keepFrame(false)
+		->constrainOnly(true)
+		->resize($this->getMaxWidth(), $this->getMaxHeight());
+endif;
+
+			$products = Mage::getModel('productvideo/productvideo')->getCollection()
+					  		->addFieldToFilter('product_id',$_product->getId())
+							->addFieldToFilter('base_image',1)
+							->load();
+
+// IFrame code 
+// -See Indies_Productvideo_Block_Catalog_Product_View_Media_Gallery 
+// -Bhupendra
+if($products->count() == 1):
+
+	foreach($products as $product):
+	
+		switch ($product->getVideoHost()):	
+			
+			case 1 :
+			 			
+						$this->getYoutubeIframe($product->getYoutubeId());
+			 		    break;
+			 case 2 :
+			     	 	$this->getVimeoIframe($product->getYoutubeId());
+			 	        break;
+			 case 3 :
+			            $this->getDailymotionIframe($product->getYoutubeId());
+						break;
+			 case 4 :
+			 	 		$this->getMetacafeIframe($product->getYoutubeId());
+			 			break;
+			 case 5:
+		 	    	  	$parameter="video=".$product->getYoutubeId();
+		 				$path =Mage::getBaseUrl(). 'productvideo/video/video?'.$parameter;
+		    			echo "<iframe src='".$path."' width='300px' height='266px'  						                    	allowFullScreen='true' frameborder='0'></iframe>"; 
+			 			break;
+						
+	  endswitch;
+	  
+  endforeach;
+
+else:
+
+?>
+<!--Code For Image Thumbnail -->   	
+<p class="product-image">
+      <a class="indies_productvideo" rel="indies_productvideo" href="<?php echo $imageUrl ?>" title="<?php echo $this->htmlEscape($this->getLabel()) ?>">
+          <img id="image" src="<?php echo $this->helper('catalog/image')->init($_product, 'image')->resize($this->getImageWidth(), $this->getImageHeight())->keepFrame($this->getImageFrame()) ?>"
+           alt="<?php echo $this->htmlEscape($this->getImageLabel()) ?>"
+           title="<?php echo $this->htmlEscape($this->getImageLabel()) ?>"/>
+      </a>
+</p>
+<?php endif; ?>
+
+<?php if (count($this->getGalleryImages()) > 0): ?>
+ <div class="container">
+              <h4><?php echo $this->__('More Views') ?></h4>
+               <ul id="items">
+<?php foreach ($this->getGalleryImages() as $_image): ?>
+<?php
+		if ($_product->getImage() ==  $_image->getFile())
+		continue;
+	
+        $imageUrl = $this->helper('catalog/image')
+            ->init($this->getProduct(), 'thumbnail', $_image->getFile());
+        
+        if ($this->getMaxWidth() || $this->getMaxHeight()):
+            $imageUrl
+                ->keepAspectRatio(true)
+				->keepFrame(false)
+                ->constrainOnly(true)
+                ->resize($this->getMaxWidth(), $this->getMaxHeight());
+        endif;
+?>
+
+        <li>
+            <a class="indies_productvideo" rel="indies_productvideo" href="<?php echo $imageUrl ?>" title="<?php echo $this->htmlEscape($_image->getLabel()) ?>">
+		  <img src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize($this->getThumbnailWidth(), $this->getThumbnailHeight())->keepFrame($this->getThumbnailFrame()); ?>" alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>" />
+			</a>
+        </li>
+<?php  endforeach; ?>
+
+<!--
+   Video Thumbnail
+  -See Indies_Productvideo_Block_Catalog_Product_View_Media_Gallery 
+  -Bhupendra
+ -->  
+<?php 
+       $products = Mage::getModel('productvideo/productvideo')->getCollection()
+				  ->addFieldToFilter('product_id',$_product->getId())
+			  	  ->load();
+				   $count = $products->count();
+					
+		if($products):
+		  foreach($products as $product):
+		 	switch($product->getVideoHost()):
+				case 1:
+						
+ 				 	 $this->getYoutubebox($product->getYoutubeId(),$product->getLabel(),false);
+					 break;
+			    case 2:
+			    	 $this->getVimeobox($product->getYoutubeId(),$product->getLabel(),false);
+                     break;
+				case 3:
+				   $this->getDailymotionbox($product->getYoutubeId(),$product->getLabel(),false);			
+				 	  break;
+		 		case 4:
+					 $this->getMetacafebox($product->getYoutubeId(),$product->getLabel(),false); 	
+					 break;
+				case 5:
+					 $this->getFlashbox($product->getYoutubeId(),$product->getLabel(),false);		   
+		     		break;						  
+				  endswitch;
+				endforeach;
+		endif;
+ ?>
+    </ul>
+   
+  <!-- Arrow Image -->
+    <div class="left1"> 
+         <img src="<?php echo $this->getSkinUrl('images/productvideo/left1.png') ?>" height="35" width="35" />
+    </div>
+    
+    <div class="right1">  
+    <img src="<?php echo $this->getSkinUrl('images/productvideo/right1.png') ?>" height="35" width="35" />
+     </div>
+
+
+</div>
+
+<!-- Java Script For Color Box --> 
+
+<script type="text/javascript">
+//<![CDATA[
+jQuery(".indies_productvideo").colorbox(<?php echo json_encode($this->getParams()) ?>);
+jQuery(".indies_productvideo").colorbox({iframe:true,innerWidth:450, innerHeight:450});
+//]]>
+</script>
+
+
+<?php endif; ?>

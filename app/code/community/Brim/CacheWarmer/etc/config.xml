@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Brim LLC Commercial Extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Brim LLC Commercial Extension License
+ * that is bundled with this package in the file Brim_CacheWarmer-license.pdf.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.brimllc.com/license
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to support@brimllc.com so we can send you a copy immediately.
+ *
+ * @category   Brim
+ * @package    Brim_CacheWarmer
+ * @copyright  Copyright (c) 2011-2014 Brim LLC
+ * @license    http://ecommerce.brimllc.com/license
+ */
+ -->
+<config>
+    <modules>
+        <Brim_CacheWarmer>
+            <version>2.0.0</version>
+        </Brim_CacheWarmer>
+    </modules>
+    <global>
+        <models>
+            <brim_cachewarmer>
+                <class>Brim_CacheWarmer_Model</class>
+            </brim_cachewarmer>
+        </models>
+        <helpers>
+            <brim_cachewarmer>
+                <class>Brim_CacheWarmer_Helper</class>
+            </brim_cachewarmer>
+        </helpers>
+        <events>
+        </events>
+    </global>
+    <default>
+        <brim_cachewarmer>
+            <general>
+                <enable>0</enable>
+                <website>0</website>
+                <cron_schedule>5 */2 * * *</cron_schedule>
+                <sources>catalog_category,catalog_product,cms</sources>
+                <concurrency>2</concurrency>
+                <flush>0</flush>
+                <debug>0</debug>
+            </general>
+        </brim_cachewarmer>
+    </default>
+    <crontab>
+        <jobs>
+            <brim_cachewarmer_crawl>
+                <run>
+                    <model>brim_cachewarmer/observer::crawl</model>
+                </run>
+            </brim_cachewarmer_crawl>
+        </jobs>
+    </crontab>
+</config>

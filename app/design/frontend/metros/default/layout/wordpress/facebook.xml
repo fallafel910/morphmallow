@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<layout>
+	 <wordpress_addon_facebook_default>
+		<reference name="post.content.before">
+			<block type="wp_addon_facebook/like" name="wp.post.facebook.like.above" as="fb.like" before="-" />
+			<block type="wp_addon_facebook/send" name="wp.post.facebook.send.above" as="fb.send" before="-" />
+		</reference>
+		<reference name="post.content.after">
+			<block type="wp_addon_facebook/like" name="wp.post.facebook.like.below" as="fb.like" before="-" />
+			<block type="wp_addon_facebook/send" name="wp.post.facebook.send.below" as="fb.send" before="-" />
+		</reference>
+	 </wordpress_addon_facebook_default>
+	<wordpress_post_view>
+		<update handle="wordpress_addon_facebook_default" />
+	</wordpress_post_view>
+	<wordpress_post_list>
+		<update handle="wordpress_addon_facebook_default" />
+	</wordpress_post_list>
+</layout>

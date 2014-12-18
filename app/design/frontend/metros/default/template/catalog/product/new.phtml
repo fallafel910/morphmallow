@@ -1,0 +1,142 @@
+    
+		
+<?php
+$ajaxcart = Mage::helper("ExtraConfig")->themeOptions('ajaxcart');
+$page = Mage::app()->getLayout()->getBlock('root')->getTemplate();
+ $newsaleicon = Mage::helper("ExtraConfig")->themeOptions('newsaleicon');
+?>
+<div class="latest-product">
+<div class="page-title">
+    <h2><?php echo $this->__('Latest Products') ?></h2>
+</div>
+			
+    <?php if (($_products = $this->getProductCollection()) && $_products->getSize()): ?>
+    <div class="slider1">
+	<?php if($page == 'page/1column.phtml') { ?>      
+	    <?php $columnCount = 3; $this->setColumnCount($columnCount); $_columnCount = $this->getColumnCount(); ?>
+	<?php } elseif($page == 'page/2columns-right.phtml' || $page == 'page/2columns-left.phtml') { ?>
+	    <?php $columnCount = 2; $this->setColumnCount($columnCount); $_columnCount = $this->getColumnCount(); ?>
+	<?php } else { ?>
+	    <?php $columnCount = 1; $this->setColumnCount($columnCount); $_columnCount = $this->getColumnCount(); ?>
+	<?php } ?>
+	<?php $i=0; foreach ($_products->getItems() as $_product): ?>
+	
+	<?php if ($i++%$_columnCount==0): ?>
+	    <?php if($page == 'page/1column.phtml') { ?>
+	    <ul class="products-grid products-grid-full">
+	    <?php } elseif($page == 'page/2columns-right.phtml' || $page == 'page/2columns-left.phtml') { ?>
+	    <ul class="products-grid products-grid-side">
+	    <?php } else { ?>
+	    <ul class="products-grid products-grid-middle">
+	    <?php } ?>
+	<?php endif ?>
+	      
+	      <li class="latest-product item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
+		    
+		    <div class="content_top">
+			
+			<?php if($newsaleicon == '1') { ?> 
+			<?php $adate = date('Y-m-d');  //echo 'frpm:-'.$_product->special_from_date.'----';echo "to:-".$_product->special_to_date.'--';
+				$a= 0;
+				if($_product->special_from_date != null && $_product->special_to_date == "")
+				{
+				    if( $adate >= $_product->special_from_date)
+				    {
+					    $a = 1; 
+				    }
+				}
+				if($_product->special_from_date != "" && $_product->special_to_date != "")
+				{
+				    if($adate >= $_product->special_from_date && $adate <= $_product->special_to_date)
+				    {
+				    $a = 1; 
+				    }
+				}
+				    
+				    if($a == 1){ ?>
+				   <div class="sale"><label><?php echo $this->__('SALE') ?></label></div>
+				    <?php } ?>
+				
+			<?php } ?>
+			
+			<?php if($ajaxcart == '2') { ?>
+			    <a href='<?php echo $this->getUrl('ajax/index/options',array('product_id'=>$_product->getId()));?>' class='fancybox quick-view' id='fancybox<?php echo $_product->getId()?>'><?php echo $this->__('Quick View') ?></a>
+			<?php } ?>
+			<a  href="<?php echo $_product->getProductUrl() ?>" class="product-image" title="<?php echo $this->htmlEscape($_product->getName()) ?>" >
+			    <img class="small-image" src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(430) ?>" alt="<?php echo $this->htmlEscape($_product->getName()) ?>" />
+			</a>
+		    </div>
+		    
+		    <div class="productgrid-area">
+			
+			<div class="productname">
+			    <?php if($page == 'page/3columns.phtml') { ?>      
+			      <?php  $productName = $this->htmlEscape($_product->getName());
+			      if(strlen($productName) > 30) {
+				      $productName = mb_strimwidth($productName,0,18,"...",'utf-8');
+			      } ?>
+			    <?php } else { ?>
+				<?php  $productName = $this->htmlEscape($_product->getName());
+				if(strlen($productName) > 23) {
+					$productName = mb_strimwidth($productName,0,23,"...",'utf-8');
+				} ?>
+			    <?php } ?>
+			  <h3 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>"><?php echo $productName; ?></a></h3>					    
+			</div>			
+		    
+			<?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
+			<div class="actions">
+			    <div class="vert">
+			      <?php echo $this->getPriceHtml($_product, true, '-new') ?>
+			    </div>
+			    <div class="inner-actions">
+			      <?php if($_product->isSaleable()): ?>
+				  <?php if($ajaxcart == '1' || $ajaxcart == '2') { ?>
+				      <?php if ( !($_product->getTypeInstance(true)->hasRequiredOptions($_product) || $_product->isGrouped()) ) { ?>
+					<div class="ajax-button">
+					    <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart ajx-cart" onclick="setLocationAjax('<?php echo $this->getAddToCartUrl($_product) ?>','<?php echo $_product->getId()?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button> 
+					</div>
+				      <?php } else { ?>
+					<button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+				      <?php }  ?>
+				  <?php } else { ?>
+				      <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+				  <?php } ?>
+			      <?php else: ?>
+				  <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+			      <?php endif; ?>
+			      <div class="add-to-links">
+				  <?php if ($this->helper('wishlist')->isAllow()) : ?>
+				      <a href="<?php echo $this->getAddToWishlistUrl($_product) ?>" title="<?php echo $this->__('Add to Wishlist') ?>" class="link-wishlist"><i class="fa fa-heart"></i><div class="tooltip"><?php echo $this->__('Add to Wishlist') ?><div class="errow"></div></div></a>
+				  <?php endif; ?>
+				  <?php if ($_compareUrl = $this->getAddToCompareUrl($_product)): ?>
+				      <span class="separator">|</span> <a href="<?php echo $_compareUrl ?>" title="<?php echo $this->__('Add to Compare') ?>" class="link-compare"><i class="fa fa-exchange"></i><div class="tooltip"><?php echo $this->__('Add to Compare') ?><div class="errow"></div></div></a>
+				  <?php endif; ?>
+			      
+			      </div>
+			      
+			    </div>
+			    
+			</div>
+		    </div>
+		    
+		    <div id='ajax_loader<?php echo $_product->getId()?>' class="ajaxcartpro_progress" style="display: none;">
+			<div class="ajax_content">
+			    <img src="<?php echo $this->getSkinUrl('ajaxcart/images/loading.gif'); ?>">
+			    <p>Please Wait . . .</p>
+			</div>
+		    </div>		    
+		    
+	      </li>
+	      
+	<?php if ($i%$_columnCount==0 || $i==count($_products)): ?>	
+	</ul>
+	<?php endif ?>
+	
+	<?php endforeach; ?>
+	      
+    </div>
+    <?php endif; ?>
+	    
+</div>	
+	    

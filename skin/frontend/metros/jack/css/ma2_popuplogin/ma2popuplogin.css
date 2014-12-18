@@ -1,0 +1,162 @@
+#overlay_modal{
+    z-index: 10001!important;
+}
+#ma2popuplogin_new{
+    z-index:  10002!important;
+}
+#ma2popuplogin_new_row1, .ma2_popup.magento_e, .ma2_popup.magento_w{
+    display: none;
+}
+#ma2popuplogin_new{
+    height: auto!important;
+    top: 24px!important;
+}
+.ma2_popup.magento_content{
+    -moz-box-shadow: 1px 2px 6px rgba(0,0,1,.75); /* drop shadow */
+    -webkit-box-shadow: 1px 2px 6px rgba(0,0,1,.75); /* drop shadow */
+    box-shadow: 1px 2px 6px rgba(0,0,1,.75); /* drop shadow */
+    background: #fff;
+    position: relative;
+    overflow: visible;
+}
+#ma2popuplogin_new_table_content:before{
+    content: '';
+    position: absolute;
+    left: 48%;
+    top: -7px;
+    height: 8px;
+    width: 11px;
+    background: url("images/popupTop.png") no-repeat;
+}
+.ma2-popup-fieldset label{
+
+}
+.ma2-popup-fieldset {
+  margin: 0;
+  padding: 10px 13px 0;
+}
+.popup-or{
+    color: #000; /* text color */
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    text-align: center;
+    margin: 13px 13px 0 13px;
+    clear: both;
+}
+.ma2-popup-fieldset .legend {
+  color: #E76200;
+  font-size: 13px;
+  font-weight: bold;
+}
+#ma2popuplogin_new_row2{
+
+}
+#ma2popuplogin_new_content{
+    width: 100%!important;
+    margin: 0;
+}
+#ma2popuplogin_new_content .ma2-popup-fieldset label {
+    color: #000; /* text color */
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: normal!important;
+    padding-bottom: 1px;
+}
+#ma2popuplogin_new_content .form-list .input-box{
+    width: 100%;
+    margin-bottom: 7px;
+}
+#ma2popuplogin_new_content .form-list .field{
+    width: 100%;
+}
+#ma2popuplogin_new_content .form-list li{
+    margin: 0;
+}
+#ma2popuplogin_new_content .block-login input.input-text{
+    width: 166px;
+    border: none;
+     height: 19px;
+     line-height: 19px;
+     padding: 2px 0;
+     font-size: 14px;
+     background: #DCDCDC;
+}
+p.ma2-popup-required {
+  color: #EB340A;
+  float: right;
+  font-size: 11px;
+  padding-left: 10px;
+  padding-right: 4px;
+  text-align: right;
+}
+
+.ma2-popup-buttons-set
+{
+  clear: both;
+  text-align: right;
+  padding-bottom: 4px;
+    padding-left: 13px;
+}
+.ma2-popup-buttons-set button.button{
+    padding: 5px 19px;
+}
+.magento_content
+{
+	padding:6px 2px;
+}
+.ma2_popup_login{}
+.ma2_popup_login .magento_close {
+  top: 0;
+  right: 0;
+}
+.overlay_ma2_popup {
+  background-color: #000000;
+  opacity: 0.68;
+}
+
+td.ma2_popup{
+	padding:0px;
+}
+
+.ma2_popup_title {
+  background: none repeat-x scroll 0 100% #333333;
+  border-bottom: 1px solid #E6E6E6;
+  opacity: 0.88;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.ma2_popup_close{
+	width:16px;
+	height:16px;
+	background:url(images/window_close.png) no-repeat 0 0;
+	position:absolute;
+	top:8px;
+	right:6px;
+	cursor:pointer;
+	z-index:1000;
+}
+
+/* Tabbed login popup */
+.tabsLoginRegister { padding-bottom:15px; margin:0 0 15px; }
+.tabsLoginRegister .tab { position:relative; z-index:2; margin-right:3px; background:#EEE; border: 1px solid #C4C4C4; color:#888; padding:0 0 0 15px; font-size:14px; }
+.tabsLoginRegister .tab span { padding:0 15px 0 0; line-height:24px; float:left;}
+.tabsLoginRegister .last {}
+.tabsLoginRegister .active { color:#E76200; z-index:3; border-bottom:0; background:#fff;
+  background-image: -moz-linear-gradient(top, #CDCDCD, #FFFFFF);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#CDCDCD), to(#FFFFFF));
+  background-image: -webkit-linear-gradient(top, #CDCDCD, #FFFFFF);
+  background-image: -o-linear-gradient(top, #CDCDCD, #FFFFFF);
+  background-image: linear-gradient(to bottom, #CDCDCD, #FFFFFF);
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFCDCDCD', endColorstr='#FFFFFFFF', GradientType=0);
+}
+.tabsLoginRegister .active span { background-position:100% 0; padding-bottom:1px; }
+.tabsLoginRegister .tab-container { z-index:1; top:25px; background:#fff; }
+.tabsLoginRegister .tab-content { padding: 1px; background:#fff; border:1px solid #c4c4c4; font-size:12px; }
+.tabsLoginRegister .tab-content object,
+.tabsLoginRegister .tab-content embed { width:100% !important; height:auto !important; }
+
+

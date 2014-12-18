@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'SegoeUIBold';
+    src: url('segoeuib.eot');
+    src: url('segoeuib.eot') format('embedded-opentype'),
+         url('segoeuib.woff') format('woff'),
+         url('segoeuib.ttf') format('truetype'),
+         url('segoeuib.svg#SegoeUIBold') format('svg');
+}

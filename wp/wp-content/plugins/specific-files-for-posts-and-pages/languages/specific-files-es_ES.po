@@ -1,0 +1,133 @@
+# Translation of the WordPress plugin   by .
+# Copyright (C) 2010
+# This file is distributed under the same license as the  package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/specific-files-for-posts-and-"
+"pages\n"
+"POT-Creation-Date: 2010-12-11 11:09+0000\n"
+"PO-Revision-Date: 2014-07-02 09:43+0100\n"
+"Last-Translator: jelena kovacevic <jecajeca260@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+
+#: php/settings-page.php:79
+msgid "Could not delete file.  Response was"
+msgstr "No se pudo eliminar el archivo. La respuesta fue"
+
+#: php/settings-page.php:89
+msgid "Specific Files"
+msgstr "Archivos Específicos"
+
+#: php/settings-page.php:92
+#, php-format
+msgid ""
+"The file directory is either missing or has incorrect permissions and I "
+"can't fix it! Please chmod all folders to 755 and all files to 644 in %s for "
+"this plugin to work correctly."
+msgstr ""
+"¡El directorio de archivos está ausente o tiene permisos incorrectos y no se "
+"pudo arreglar! Por favor use chmod a todas las carpetas con 755 y a todos "
+"los archivos con 644 en %s para que este plugin pueda funcionar "
+"correctamente."
+
+#: php/settings-page.php:95
+msgid ""
+"There was an error while uploading your CSS file. Remember, only files with "
+"extension .css are allowed. Please try again."
+msgstr ""
+"Se ha producido un error al subir el archivo CSS. Recuerde, sólo los "
+"archivos con extensión .css están permitidos. Por favor, inténtelo de nuevo."
+
+#: php/settings-page.php:98
+msgid ""
+"There was an error while uploading your JS file. Remember, only files with "
+"extension .js are allowed. Please try again."
+msgstr ""
+"Se ha producido un error al subir el archivo JS. Recuerde, sólo los archivos "
+"con extensión js están permitidos. Por favor, inténtelo de nuevo."
+
+#: php/settings-page.php:104
+msgid "Information"
+msgstr "Información"
+
+#: php/settings-page.php:106
+#, php-format
+msgid ""
+"If you prefer to upload via FTP, upload your CSS files to %s and your JS "
+"files to %s."
+msgstr ""
+"Si prefiere subir por FTP, suba sus archivos CSS a %s y sus archivos JS a %s."
+
+#: php/settings-page.php:107
+msgid ""
+"However, deleting these files with your FTP client will <strong>not</strong> "
+"remove the references to them on the pages that call them. Use the delete "
+"buttons on this page to remove all references of a file."
+msgstr ""
+"Sin embargo, la eliminación de estos archivos con su cliente FTP <strong>no "
+"</strong> quita las referencias a ellos en las páginas que los llaman. Use "
+"los botones de eliminación en esta página para quitar todas las referencias "
+"a un archivo."
+
+#: php/settings-page.php:120
+msgid "No CSS files to list"
+msgstr "No hay archivos CSS para mostrar"
+
+#: php/settings-page.php:128
+msgid "Upload a CSS file"
+msgstr "Subir un archivo CSS"
+
+#: php/settings-page.php:135 php/settings-page.php:166
+msgid "Upload file"
+msgstr "Subir archivo"
+
+#: php/settings-page.php:146
+msgid "List of JS files"
+msgstr "Lista de archivos JS"
+
+#: php/settings-page.php:151
+msgid "No JS files to list"
+msgstr "No hay archivos JS para mostrar"
+
+#: php/settings-page.php:159
+msgid "Upload a JS file"
+msgstr "Subir un archivo JS"
+
+#: php/settings-page.php:176
+msgid "Specific Files Wordpress Plugin"
+msgstr "Archivos específicos de Plugin de Wordpress "
+
+#: specific-files.php:109
+msgid "Post-Specific CSS Files"
+msgstr "Archivos CSS específicos de post "
+
+#: specific-files.php:110
+msgid "Page-Specific CSS Files"
+msgstr "Archivos CSS específicos de página"
+
+#: specific-files.php:111
+msgid "Post-Specific JS Files"
+msgstr "Archivos JS específicos de post"
+
+#: specific-files.php:112
+msgid "Page-Specific JS Files"
+msgstr "Archivos CSS específicos de página"
+
+#: specific-files.php:319
+msgid "Select the CSS files to include with this post."
+msgstr "Seleccione los archivos CSS para incluir en este post."
+
+#: specific-files.php:385
+msgid "Select the JS files to include with this post."
+msgstr "Seleccione los archivos JS para incluir en este post."
+
+#: specific-files.php:406
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Usted no tiene los permisos necesarios para acceder a esta página."

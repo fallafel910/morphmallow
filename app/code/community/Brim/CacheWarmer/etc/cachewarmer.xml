@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Brim LLC Commercial Extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Brim LLC Commercial Extension License
+ * that is bundled with this package in the file Brim_CacheWarmer-license.pdf.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.brimllc.com/license
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to support@brimllc.com so we can send you a copy immediately.
+ *
+ * @category   Brim
+ * @package    Brim_CacheWarmer
+ * @copyright  Copyright (c) 2011-2014 Brim LLC
+ * @license    http://ecommerce.brimllc.com/license
+ */
+ -->
+<config>
+    <cachewarmer>
+        <sources>
+            <homepage>
+                <label>Homepage(s)</label>
+                <model>brim_cachewarmer/source_homepage</model>
+            </homepage>
+            <catalog_category>
+                <label>Categories</label>
+                <model>brim_cachewarmer/source_catalog_category</model>
+            </catalog_category>
+            <catalog_product>
+                <label>Products</label>
+                <model>brim_cachewarmer/source_catalog_product</model>
+            </catalog_product>
+            <catalog_custom>
+                <label>Custom Url Rewrites</label>
+                <model>brim_cachewarmer/source_catalog_custom</model>
+            </catalog_custom>
+            <cms>
+                <label>CMS Pages</label>
+                <model>brim_cachewarmer/source_cms</model>
+            </cms>
+            <urllist>
+                <label>Custom Url List</label>
+                <model>brim_cachewarmer/source_urllist</model>
+                <args>
+                    <!--<basepath></basepath>--> <!-- defaults to {{mage_root}}/var/cachewarmer/ -->
+                    <file>url.list</file>
+                </args>
+            </urllist>
+            <sitemap>
+                <label>Sitemaps</label>
+                <model>brim_cachewarmer/source_sitemap</model>
+            </sitemap>
+        </sources>
+    </cachewarmer>
+ </config>

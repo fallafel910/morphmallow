@@ -1,0 +1,288 @@
+
+<script type="text/javascript">
+//<![CDATA[
+	var videosControl = null;
+//]]>
+function clearAllRadios() 
+{
+	
+	var radList = document.getElementsByName('basevideo');
+	for (var i = 0; i < radList.length; i++) 
+	{
+		if(radList[i].checked) radList[i].checked = false;
+	}
+}
+function clearunset()
+{
+	document.getElementById('unset_base_image').checked=false;
+}
+</script>
+<?php 
+	$_htmlId = 'videos';
+	$product = Mage::registry('product');
+	$products = Mage::getModel('productvideo/productvideo')->getCollection()
+			  ->addFieldToFilter('product_id',$product->getId())
+			  ->load();
+ 	
+	?>
+ <div class="entry-edit">
+
+	<div class="entry-edit-head">
+	<h4 class="icon-head head-edit-form fieldset-legend">Product Video</h4>
+     <div class="entry-edit-head">
+	
+	<div class="form-buttons">
+			<button id="create_attribute_47" class="scalable" style="" onclick=			    "clearAllRadios();" type="button" title="Un">
+   			<span>
+			<span>
+				<span>Unset Base Image</span>
+			</span>
+			</span>
+		</button>
+   			</div>
+  		 </div> 
+    </div>
+    
+    <div class="fieldset fieldset-wide">
+    	<div class="hor-scroll">         
+		<table class="form-list" cellspacing="0">
+            <tbody>
+            	
+                <tr>
+							<td class="grid">
+								<table class="data border" id="<?php echo $_htmlId; ?>_table" cellspacing="0">
+									<col width="200" />
+									<col style="min-width: 250px" />
+									<col width="100"/>
+									<col width="100"/>
+									<col width="100"/>
+                                   
+									<thead>
+										<tr class="headings">
+											<th><?php echo Mage::helper('productvideo')->__('Video Code')?></th>
+											<th><?php echo Mage::helper('productvideo')->__('Video Title')?></th>
+											<th><?php echo Mage::helper('productvideo')->__('Make Base Image')?></th>
+											<th><?php echo Mage::helper('productvideo')->__('Video Host')?></th>
+                                            <th>Action</th>
+										</tr>
+									</thead>
+									<tbody id="<?php echo $_htmlId; ?>_container">
+									</tbody>
+									<tfoot>
+										<tr>
+											<td colspan="8" class="a-right">
+												<button id="btn_add_youtube_video" type="button" class="scalable add" onclick="return videosControl.addItem()"><span><?php echo Mage::helper('productvideo')->__('Add Video From Youtube') ?></span></button>
+												<button id="btn_add_vimeo_video" type="button" class="scalable add" onclick="return videosControl.addItem(2)"><span><?php echo Mage::helper('productvideo')->__('Add Video From Vimeo') ?></span></button>
+                                                <button id="btn_add_daily_video" type="button" class="scalable add" onclick="return videosControl.addItem(3)"><span><?php echo Mage::helper('productvideo')->__('Add Video From DialyMotion') ?></span></button>
+                                                 <button id="btn_add_daily_video" type="button" class="scalable add" onclick="return videosControl.addItem(4)"><span><?php echo Mage::helper('productvideo')->__('Add Video From Metacafe') ?></span></button>
+		
+
+                                            </td>
+										</tr>
+										<tr>
+                                   			
+                                             <td colspan="8" class="a-right">
+                                             <div id="<?php echo $this->getHtmlId() ?>" class="uploader">
+    <div class="buttons">
+        <?php /* buttons included in flex object */ ?>
+        <?php  /*echo $this->getBrowseButtonHtml()*/  ?>
+        <?php  /*echo $this->getUploadButtonHtml()*/?>
+        
+        <div id="<?php echo  $this->getHtmlId() ?>-install-flash" style="display:none">
+            <?php echo Mage::helper('media')->__('This content requires last version of Adobe Flash Player. <a href="%s">Get Flash</a>', 'http://www.adobe.com/go/getflash/') ?>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="no-display" id="<?php echo $this->getHtmlId() ?>-template">
+        <div id="{{id}}" class="file-row">
+        <span class="file-info">{{name}} ({{size}})</span>
+        <span class="delete-button"><?php echo $this->getDeleteButtonHtml() ?></span>
+        <span class="progress-text"></span>
+        <div class="clear"></div>
+     		
+        </div>
+    </div>
+    <div class="no-display" id="<?php echo $this->getHtmlId() ?>-template-progress">
+        {{percent}}% {{uploaded}} / {{total}}
+		<script type="text/javascript">
+		
+		</script> 
+     
+     </div>
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+
+var maxUploadFileSizeInBytes = <?php echo $this->getDataMaxSizeInBytes() ?>;
+var maxUploadFileSize = '<?php echo $this->getDataMaxSize() ?>';
+
+<?php echo $this->getJsObjectName() ?> = new Flex.Uploader('<?php echo $this->getHtmlId() ?>', '<?php echo $this->getUploaderUrl('media/uploader.swf') ?>', <?php echo $this->getConfigJson() ?>);
+<?php echo $this->getJsObjectName() ?>.onFilesComplete = function(completedFiles){
+    completedFiles.each(function(file){
+        <?php echo $this->getJsObjectName() ?>.removeFile(file.id);
+   			var filename=file.name;
+			if(filename.split('.').pop()=='flv')	
+			videosControl.addItem(5,file.name);
+    });
+    MediabrowserInstance.handleUploadComplete();
+}
+if (varienGlobalEvents) {
+    varienGlobalEvents.attachEventHandler('tabChangeBefore', <?php echo $this->getJsObjectName() ?>.onContainerHideBefore);
+	
+	
+	 
+}
+
+//]]>
+</script>             		           </td>
+                                     </tr>
+                                   </tfoot>
+								</table>
+							</td>
+						</tr>		 
+				 <tr> <td>&nbsp;  </td> </tr>
+                 <tr> <td>&nbsp;  </td> </tr>
+                 <tr> <td>&nbsp;  </td> </tr>
+          </tbody>
+    </table>
+<script type="text/javascript">
+//<![CDATA[
+
+
+
+//<![CDATA[
+var videosRowTemplate = ''
++'<tr>'
++'	<td>'
++'		<input name="product[videos][{{index}}][id]" value="{{id}}" id="videos_row_{{index}}_id" type="hidden" />'
++'		<input class="input-text required-entry" name="product[videos][{{index}}][code]" value="{{code}}" id="videos_row_{{index}}_code" type="text" />'
++'	</td>'
++'	<td>'
++'		<input style="width: 98%" class="input-text required-entry" name="product[videos][{{index}}][title]" value="{{title}}" id="videos_row_{{index}}_title" type="text" />'
++'	</td>'
++'	<td class="value" style="float:left;">'
++'		<input type="radio"  name="basevideo"    	id="videos_row_{{index}}_radio" {{baseimage}} value="{{index}}" />'
++'	</td>'
++'  <td class="last" style="text-align:center;">'
++'		{{hostName}} '
++'		<input class="input-text validate-zero-or-greater" name="product[videos][{{index}}][host]" value="{{host}}" id="videos_row_{{index}}_host" type="hidden" />'
++'	</td>'
++'  <td class="last">'
++'		<input name="product[videos][{{index}}][delete]" class="delete" value="" id="videos_row_{{index}}_delete" type="hidden" />'
++'		<input name="product[videos][{{index}}][delete]" class="delete" value="" id="videos_row_{{index}}_delete" type="hidden" />'
++'		<button title="Delete Video" type="button" class="scalable delete icon-btn delete-product-option" id="videos_row_{{index}}_delete_button" onclick="return videosControl.deleteItem(event);"><span><?php echo Mage::helper('productvideo')->__('Delete') ?></span></button>'
++'	</td>'
++'</tr>';
+
+ 
+videosControl = {
+    template: new Template(videosRowTemplate, new RegExp('(^|.|\\r|\\n)({{\\s*(\\w+)\\s*}})', "")),
+    itemsCount: 0,
+
+    getHostName : function (host) {
+        var hostName = 'Youtube';
+        if(host == 2) hostName = 'Vimeo';
+		if(host == 3) hostName = 'Daily Motion';
+		if(host == 4) hostName = 'Metacafe';
+		if(host == 5) hostName = 'Flv';
+        return hostName;
+    },
+    addItem : function (host,code) {
+        if(host == undefined) host = 1;
+		if(code == undefined) code='';	
+        var data = {
+            id: '',
+            code: code,
+            title: '',
+            baseimage: '',
+			host: host,
+            hostName: this.getHostName(host),
+           	check: '',
+		    index: this.itemsCount++
+        };
+
+        if(arguments.length >= 4) {
+            
+			data.id 					= arguments[0];
+           	data.code         			= arguments[1];
+            data.title            	    = arguments[2];
+			data.baseimage         	    = arguments[3];
+            if(data.baseimage==1)
+			{
+					
+					data.baseimage="checked='true'";
+					
+			}else{
+					data.baseimage="";
+					
+								
+			}
+			data.host               	= arguments[4];
+          	data.hostName               = this.getHostName(arguments[4]);
+			
+			     			
+	    }
+
+        var el = Element.insert($('<?php echo $_htmlId ?>_container'), {
+            bottom : this.template.evaluate(data)
+        });
+
+        if(data.host == 6) {
+            var tr = el.select('tr');
+            var tds = tr[tr.length-1].select('td');
+
+            videosControl.setReadOnly($(tds[0].select('input')[1]));
+            videosControl.setReadOnly($(tds[1].select('input')[0]));
+        }
+    },
+
+    disableElement: function(el) {
+        el.disabled = true;
+        el.addClassName('disabled');
+    },
+
+    setReadOnly : function(el) {
+        el.addClassName('disabled');
+    },
+
+    deleteItem: function(event) {
+        var tr = Event.findElement(event, 'tr');
+        if (tr) {
+            Element.select(tr, '.delete').each(function(elem){elem.value='1'});
+            Element.select(tr, ['input', 'select']).each(function(elem){elem.hide()});
+            Element.hide(tr);
+            Element.addClassName(tr, 'no-display template');
+        }
+        return false;
+    }
+};
+
+<?php $videocollection = Mage::getModel('productvideo/productvideo')->getCollection()
+			  ->addFieldToFilter('product_id',$product->getId())
+			  ->load();
+		
+	 	
+		foreach ($videocollection as $video): 
+	  	$base=$video->getBaseImage();
+	 		 
+	 
+	 
+	  ?>
+	  videosControl.addItem(
+		'<?php echo addslashes($video->getVideoId())?>',
+		'<?php echo addslashes($video->getYoutubeId())?>',
+		'<?php echo addslashes($video->getLabel())?>',
+		'<?php echo addslashes($video->getBaseImage())?>',
+		'<?php echo addslashes($video->getVideoHost())?>'
+       
+	);
+
+<?php endforeach; ?>
+
+
+</script>
+
+
+
+

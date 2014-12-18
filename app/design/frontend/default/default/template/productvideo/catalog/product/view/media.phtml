@@ -1,0 +1,18 @@
+<?php if (Mage::getStoreConfig('productvideo/license_status_group/enable')): ?>
+<?php 
+		$imagegalleryAuthentication = Mage::helper('productvideo');
+	
+ 		if (!$imagegalleryAuthentication->canRun()) 
+		{
+  			echo $imagegalleryAuthentication->getMessage();
+ 		}
+		else
+		{
+		    echo $this->getChildHtml($this->getGalleryBlockName()) ;
+		}
+?>
+<?php 
+	else:
+			echo $this->loadDefault();
+?>		
+<?php endif; ?>

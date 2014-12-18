@@ -1,0 +1,172 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php $_product = $this->getProduct(); ?>
+<?php
+$ajaxcart = Mage::helper("ExtraConfig")->themeOptions('ajaxcart');
+$newsaleicon = Mage::helper("ExtraConfig")->themeOptions('newsaleicon');
+?>
+<?php if($this->getItems()->getSize()): ?>
+    <div class="spaghetti-related-mobile">
+        <div class="page-title">
+            <h2><?php echo $this->__('Customers Who Bought This Item Also Bought') ?></h2>
+        </div>
+
+        <div class="block-content">
+            <?php $pagelayout = $this->htmlEscape($_product->getPageLayout()); ?>
+            <?php $columnCount = 2; $this->setColumnCount($columnCount); $_columnCount = $this->getColumnCount(); ?>
+            <div class="slider3">
+                <?php $i=0;$j=0; foreach($this->getItems() as $_item): ?>
+                <?php if ($i++%$_columnCount==0): ?>
+                <?php if($pagelayout == '' || $pagelayout == 'one_column'){ ?>
+                <ul class="products-grid products-grid-full">
+                    <?php } else { ?>
+                    <ul class="products-grid products-grid-side">
+                        <?php } ?>
+                        <?php endif ?>
+
+                        <li class="column3 item">
+                            <div class="content_top">
+
+                                <?php if($newsaleicon == '1') { ?>
+                                    <?php $adate = date('Y-m-d');  //echo 'frpm:-'.$_item->special_from_date.'----';echo "to:-".$_item->special_to_date.'--';
+                                    $a= 0;
+                                    if($_item->special_from_date != null && $_item->special_to_date == "")
+                                    {
+                                        if( $adate >= $_item->special_from_date)
+                                        {
+                                            $a = 1;
+                                        }
+                                    }
+                                    if($_item->special_from_date != "" && $_item->special_to_date != "")
+                                    {
+                                        if($adate >= $_item->special_from_date && $adate <= $_item->special_to_date)
+                                        {
+                                            $a = 1;
+                                        }
+                                    }
+
+                                    if($a == 1){ ?>
+                                        <div class="sale"><label><?php echo $this->__('SALE') ?></label></div>
+                                    <?php } ?>
+
+
+                                    <?php $bdate = date('Y-m-d');
+                                    $b= 0;
+                                    if($_item->news_from_date != null && $_item->news_to_date == "")
+                                    {
+                                        if( $bdate >= $_item->news_from_date)
+                                        {
+                                            $b = 1;
+                                        }
+                                    }
+                                    if($_item->news_from_date != "" && $_item->news_to_date != "")
+                                    {
+                                        if($bdate >= $_item->news_from_date && $bdate <= $_item->news_to_date)
+                                        {
+                                            $b = 1;
+                                        }
+                                    }
+                                    if($b == 1){ ?>
+                                        <div class="new"><label><?php echo $this->__('NEW') ?></label></div>
+                                    <?php }
+                                    ?>
+                                <?php } ?>
+
+                                <a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_item->getName()) ?>" class="product-image">
+                                    <img class="small-image" src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(276,385) ?>"alt="<?php echo $this->htmlEscape($_item->getName()) ?>" />
+                                </a>
+
+                                <div class="productname">
+                                    <?php  $productName = $this->htmlEscape($_item->getName());
+                                    if(strlen($productName) > 30) {
+                                        $productName = mb_strimwidth($productName,0,30,"...",'utf-8');
+                                    } ?>
+                                    <h3 class="product-name"><a href="<?php echo $_item->getProductUrl() ?>"><?php echo $productName; ?></a></h3>
+                                    <div class="price"><?php echo Mage::helper('core')->formatPrice($_item->getFinalPrice(), false); ?></div>
+                                </div>
+
+
+                            </div>
+
+                            <div id='ajax_loader<?php echo $_item->getId()?>' class="ajaxcartpro_progress" style="display: none;">
+                                <div class="ajax_content">
+                                    <img src="<?php echo $this->getSkinUrl('ajaxcart/images/loading.gif'); ?>">
+                                    <p>Please Wait . . .</p>
+                                </div>
+                            </div>
+
+                        </li>
+
+                        <?php if ($i%$_columnCount==0 || $i==$_collectionSize): ?>
+                    </ul>
+                <?php endif ?>
+
+                    <?php endforeach ?>
+                    <script type="text/javascript">decorateList('block-related', 'none-recursive')</script>
+            </div>
+        </div>
+        <script type="text/javascript">
+            //<![CDATA[
+            $$('.related-checkbox').each(function(elem){
+                Event.observe(elem, 'click', addRelatedToProduct)
+            });
+
+            var relatedProductsCheckFlag = false;
+            function selectAllRelated(txt){
+                if (relatedProductsCheckFlag == false) {
+                    $$('.related-checkbox').each(function(elem){
+                        elem.checked = true;
+                    });
+                    relatedProductsCheckFlag = true;
+                    txt.innerHTML="<?php echo $this->__('unselect all') ?>";
+                } else {
+                    $$('.related-checkbox').each(function(elem){
+                        elem.checked = false;
+                    });
+                    relatedProductsCheckFlag = false;
+                    txt.innerHTML="<?php echo $this->__('select all') ?>";
+                }
+                addRelatedToProduct();
+            }
+
+            function addRelatedToProduct(){
+                var checkboxes = $$('.related-checkbox');
+                var values = [];
+                for(var i=0;i<checkboxes.length;i++){
+                    if(checkboxes[i].checked) values.push(checkboxes[i].value);
+                }
+                if($('related-products-field')){
+                    $('related-products-field').value = values.join(',');
+                }
+            }
+            //]]>
+        </script>
+
+
+
+    </div>
+<?php endif ?>

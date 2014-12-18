@@ -1,0 +1,20 @@
+##
+# Facebook
+# An extension to integrate the official WordPress Facebook plugin into Magento
+#
+# Author:			Benn Tideswell
+# URL:				http://fishpig.co.uk/magento/wordpress-integration/facebook/
+# WP URL:		http://wordpress.org/plugins/facebook/
+##
+
+28/05/2013 - 1.0.2.0
+- Added better checking to decide when to include SDK
+
+23/04/2013 - 1.0.1.1
+- Added module name and URL into config.xml
+
+15/01/2013 - 1.0.1.0
+- Fixed issue that caused comments to display regardless of FB plugin installation state
+
+06/01/2013 - 1.0.0.0
+- First stable release

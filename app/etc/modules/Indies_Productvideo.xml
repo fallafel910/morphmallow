@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <Indies_Productvideo>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Indies_Productvideo>
+    </modules>
+</config> 

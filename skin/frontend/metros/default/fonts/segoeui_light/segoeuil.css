@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'SegoeUILight';
+    src: url('segoeuil.eot');
+    src: url('segoeuil.eot') format('embedded-opentype'),
+         url('segoeuil.woff') format('woff'),
+         url('segoeuil.ttf') format('truetype'),
+         url('segoeuil.svg#SegoeUILight') format('svg');
+}
