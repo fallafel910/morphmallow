@@ -1,4 +1,7 @@
 <?php
+/** Enable W3 Total Cache */
+define('WP_CACHE', true); // Added by W3 Total Cache
+
 /** Enable W3 Total Cache Edge Mode */
 define('W3TC_EDGE_MODE', true); // Added by W3 Total Cache
 
@@ -19,13 +22,13 @@ define('W3TC_EDGE_MODE', true); // Added by W3 Total Cache
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'morphstag_db');
+define('DB_NAME', 'morphmallow_db');
 
 /** MySQL database username */
-define('DB_USER', 'morphstag_dbuser');
+define('DB_USER', 'morphmallow_db');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'g3.r0mkO3A');
+define('DB_PASSWORD', 'f8jzO3An0mbNc');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
