@@ -45,7 +45,6 @@ class Fishpig_Wordpress_PageController extends Fishpig_Wordpress_Controller_Abst
 	public function viewAction()
 	{
 		$page = $this->_initPage();
-		
 		$this->_addCustomLayoutHandles(array(
 			'wordpress_page_view',
 			'wordpress_page_view_' . $page->getId(),
