@@ -25,10 +25,10 @@ define('W3TC_EDGE_MODE', true); // Added by W3 Total Cache
 define('DB_NAME', 'morphmallow_db');
 
 /** MySQL database username */
-define('DB_USER', 'morphmallow_db');
+define('DB_USER', 'root');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'f8jzO3An0mbNc');
+define('DB_PASSWORD', '');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');

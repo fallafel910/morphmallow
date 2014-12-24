@@ -41,8 +41,8 @@
             <default_setup>
                 <connection>
                     <host><![CDATA[localhost]]></host>
-                    <username><![CDATA[morphmallow_db]]></username>
-                    <password><![CDATA[f8jzO3An0mbNc]]></password>
+                    <username><![CDATA[root]]></username>
+                    <password><![CDATA[]]></password>
                     <dbname><![CDATA[morphmallow_db]]></dbname>
                     <initStatements><![CDATA[SET NAMES utf8]]></initStatements>
                     <model><![CDATA[mysql4]]></model>

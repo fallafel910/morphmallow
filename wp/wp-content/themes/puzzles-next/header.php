@@ -67,7 +67,11 @@ if (!isset($_COOKIE['jreject'])) {
 	<link rel="stylesheet" href="https://morphmallow.com/skin/frontend/metros/default/webandpeople/custommenu/custommenu.css"> 
 	<link rel="stylesheet" href="https://morphmallow.com/skin/frontend/metros/jack/css/mobile.css">
 	<link media="all" type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/themeoption.css.php"> 
-								 
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.min.css">
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/jquery-ui.min.css">
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/merged.css">
+
+
 	<script src="<?php echo get_template_directory_uri(); ?>/js/prototype.js" type="text/javascript"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/ccard.js" type="text/javascript"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/validation.js" type="text/javascript"></script>
@@ -88,6 +92,19 @@ if (!isset($_COOKIE['jreject'])) {
 	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.bxslider.js" type="text/javascript"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/homeslider-config.js" type="text/javascript"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/script2.js" type="text/javascript"></script>
+
+	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.min.js"></script>
+	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/videosGridView.js"></script>
+	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/videoHandler.js"></script>
+	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/storeSlider.js"></script>
+	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/scripts.js"></script>
+	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/masonry.pkgd.min.js"></script>
+	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/imagesloaded.js"></script>
+	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/classie.js"></script>
+	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/AnimOnScroll.js"></script>
+
 
 	<meta content="addshoppers:product" property="og:type">
 	<script type="text/javascript">

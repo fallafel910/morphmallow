@@ -67,6 +67,24 @@
 		</reference>
 		<reference name="head">
 			<action method="addCss" ifconfig="wordpress_blog/layout/include_css"><style>wordpress/styles.css</style></action>
+			<action method="addCss" ifconfig="wordpress_blog/layout/include_css"><style>wordpress/bootstrap.min.css</style></action>
+			<action method="addCss" ifconfig="wordpress_blog/layout/include_css"><style>wordpress/jquery-ui.min.css</style></action>
+			<action method="addCss" ifconfig="wordpress_blog/layout/include_css"><style>wordpress/merged.css</style></action>
+
+			<action method="addItem"><type>skin_js</type><name>js/videoChannel/jquery.min.js</name><params/></action>
+
+			<action method="addItem"><type>skin_js</type><name>js/videoChannel/jquery.min.js</name><params/></action>
+			<action method="addItem"><type>skin_js</type><name>js/videoChannel/bootstrap.min.js</name><params/></action>
+			<action method="addItem"><type>skin_js</type><name>js/videoChannel/videosGridView.js</name><params/></action>
+			<action method="addItem"><type>skin_js</type><name>js/videoChannel/videoHandler.js</name><params/></action>
+			<action method="addItem"><type>skin_js</type><name>js/videoChannel/storeSlider.js</name><params/></action>
+			<action method="addItem"><type>skin_js</type><name>js/videoChannel/scripts.js</name><params/></action>
+			<action method="addItem"><type>skin_js</type><name>js/videoChannel/jquery-ui.min.js</name><params/></action>
+			<action method="addItem"><type>skin_js</type><name>js/videoChannel/masonry.pkgd.min.js</name><params/></action>
+			<action method="addItem"><type>skin_js</type><name>js/videoChannel/imagesloaded.js</name><params/></action>
+			<action method="addItem"><type>skin_js</type><name>js/videoChannel/classie.js</name><params/></action>
+			<action method="addItem"><type>skin_js</type><name>js/videoChannel/AnimOnScroll.js</name><params/></action>
+
 		</reference>
 		<reference name="left">
 			<action method="unsetChildren" ifconfig="wordpress_blog/layout/sidebar_left_empty" />

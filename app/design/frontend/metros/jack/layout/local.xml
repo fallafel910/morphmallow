@@ -64,6 +64,10 @@
                 <stylesheet>css/jack.css</stylesheet>
             </action>
 
+            <action method="addCss"><style>css/bootstrap.min.css</style></action>
+            <action method="addCss"><style>css/jquery-ui.min.css</style></action>
+            <action method="addCss"><style>css/merged.css</style></action>
+
         </reference>
         <reference name="root">
             <block type="core/text_list" name="top" as="top" translate="label">
