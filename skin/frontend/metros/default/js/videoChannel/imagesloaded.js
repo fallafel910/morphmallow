@@ -7,7 +7,7 @@
 
 'use strict';
 
-var $ = window.jQuery;
+var j$ = window.jQuery;
 var console = window.console;
 var hasConsole = typeof console !== 'undefined';
 
@@ -78,9 +78,9 @@ function defineImagesLoaded( EventEmitter, eventie ) {
 
     this.getImages();
 
-    if ( $ ) {
+    if ( j$ ) {
       // add jQuery Deferred object
-      this.jqDeferred = new $.Deferred();
+      this.jqDeferred = new j$.Deferred();
     }
 
     // HACK check async to allow time to bind listeners
@@ -174,10 +174,10 @@ function defineImagesLoaded( EventEmitter, eventie ) {
 
   // -------------------------- jquery -------------------------- //
 
-  if ( $ ) {
-    $.fn.imagesLoaded = function( options, callback ) {
+  if ( j$ ) {
+    j$.fn.imagesLoaded = function( options, callback ) {
       var instance = new ImagesLoaded( this, options, callback );
-      return instance.jqDeferred.promise( $(this) );
+      return instance.jqDeferred.promise( j$(this) );
     };
   }
 

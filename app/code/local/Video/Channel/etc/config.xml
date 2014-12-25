@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<config>
+  <modules>
+    <video_channel>
+      <version>0.1.0</version>
+    </video_channel>
+  </modules>
+  <global>
+    <page>
+      <layouts>
+        <!--<INTERNAL_NAME_FOR_YOUR_NEW_LAYOUT translate="label">
+          <label>Videos</label>
+          <template>page/LAYOUT_FILE_NAME.phtml</template>
+          <layout_handle>LAYOUT_HANDLE</layout_handle>
+        </INTERNAL_NAME_FOR_YOUR_NEW_LAYOUT>
+         add more layouts here -->
+        <video_channel module="page" translate="label">
+          <label>Videos</label>
+          <template>page/videos.phtml</template>
+          <layout_handle>video_channel</layout_handle>
+        </video_channel>
+      </layouts>
+    </page>
+  </global>
+</config>

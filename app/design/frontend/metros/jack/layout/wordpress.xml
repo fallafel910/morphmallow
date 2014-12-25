@@ -71,7 +71,7 @@
 			<action method="addCss" ifconfig="wordpress_blog/layout/include_css"><style>wordpress/jquery-ui.min.css</style></action>
 			<action method="addCss" ifconfig="wordpress_blog/layout/include_css"><style>wordpress/merged.css</style></action>
 
-			<action method="addItem"><type>skin_js</type><name>js/videoChannel/jquery.min.js</name><params/></action>
+			<!-- <action method="addItem"><type>skin_js</type><name>js/videoChannel/jquery.min.js</name><params/></action>
 
 			<action method="addItem"><type>skin_js</type><name>js/videoChannel/jquery.min.js</name><params/></action>
 			<action method="addItem"><type>skin_js</type><name>js/videoChannel/bootstrap.min.js</name><params/></action>
@@ -83,7 +83,7 @@
 			<action method="addItem"><type>skin_js</type><name>js/videoChannel/masonry.pkgd.min.js</name><params/></action>
 			<action method="addItem"><type>skin_js</type><name>js/videoChannel/imagesloaded.js</name><params/></action>
 			<action method="addItem"><type>skin_js</type><name>js/videoChannel/classie.js</name><params/></action>
-			<action method="addItem"><type>skin_js</type><name>js/videoChannel/AnimOnScroll.js</name><params/></action>
+			<action method="addItem"><type>skin_js</type><name>js/videoChannel/AnimOnScroll.js</name><params/></action> -->
 
 		</reference>
 		<reference name="left">
@@ -120,6 +120,18 @@
 			</block>
 		</reference>
 	</wordpress_homepage>
+	<!--
+	/**
+	 * WordPress Videos
+	 *
+	 */
+	-->
+	<wordpress_videos>
+		<reference name="content">
+			<block type="wordpress/videos" name="wordpress_videos" template="wordpress/videos.phtml">>
+			</block>
+		</reference>
+	</wordpress_videos>
 	<!--
 	/**
 	 * Blog post

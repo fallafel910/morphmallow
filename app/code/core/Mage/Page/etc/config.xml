@@ -70,6 +70,11 @@
                     <template>page/3columns.phtml</template>
                     <layout_handle>page_three_columns</layout_handle>
                 </three_columns>
+                <full_width module="page" translate="label">
+                    <label>full Width</label>
+                    <template>page/fullwidth.phtml</template>
+                    <layout_handle>page_full_width</layout_handle>
+                </full_width>
             </layouts>
         </page>
     </global>

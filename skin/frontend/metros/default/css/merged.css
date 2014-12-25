@@ -129,7 +129,7 @@ body {
 #video-container {
   position: relative;
   cursor: pointer;
-  height: 100%;
+  height: 650px;
 }
 #showNext, #showPrev {
   background-size: 100% 100% !important;
@@ -324,7 +324,7 @@ ul.menu-blocks li {
   border-right: 1px solid white;
 }
 #top-menu {
-  display: inline-block;
+  /*display: inline-block;*/
   position: absolute;
   width: 100%;
   text-align: center;
@@ -353,10 +353,11 @@ ul#home-menu-ul {
   height: 100%;
 }
 #top-menu ul.list-inline li.home {
-  padding: 5px 32px;
+  padding: 5px 51px;
   text-align: center;
   vertical-align: top;
   border-right: 1px solid white;
+  background: url(../images/store_icon-md.png) no-repeat center;
 }
 #top-menu ul.list-inline li p.title {
   width: 200px;
@@ -371,14 +372,20 @@ ul#home-menu-ul {
   position: relative;
 }
 #top-menu ul.list-inline li.share .shareImg:hover {
-  background-image: url('../images/share_menu_icon_selected-md.png');
-  background-color: white;
 }
 #top-menu ul.list-inline li.share .share-menu-holder:hover #share-menu {
   display: block;
 }
 #top-menu ul li.share .share-menu-holder:hover #share-menu, #share-menu:hover {
   display: block;
+}
+.shareImg-selected {
+  background-image: url('../images/share_menu_icon_selected-md.png');
+  background-color: white;
+}
+.shareImg-not-selected {
+  background-image: url('../images/share_menu_icon-md.png');
+  background-color: rgb(241,92,83);
 }
 #share-menu {
   margin: auto;

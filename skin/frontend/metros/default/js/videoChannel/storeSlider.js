@@ -21,39 +21,39 @@ var StoreItemsSlider = {
   hide: function() {
     if (!StoreItemsSlider.showing)
       return;
-    $(".home").css('background', "rgb(241,92,83)");
-    $('.home img').attr('src', 'images/store_icon-md.png');
-    $('.store-slider-container').hide();
+    j$(".home").css('background', "rgb(241,92,83)");
+    j$('.home img').attr('src', 'images/store_icon-md.png');
+    j$('.store-slider-container').hide();
     StoreItemsSlider.showing = false;
   },
 
   show: function() {
     if (StoreItemsSlider.showing)
       return;
-    $(".home").css('background', "white");
-    $('.home img').attr('src', 'images/home_hover-md.png');
-    $('.store-slider-container').css("zIndex", 200);
-    $('.store-slider-container').show();
+    j$(".home").css('background', "white");
+    j$('.home img').attr('src', 'images/home_hover-md.png');
+    j$('.store-slider-container').css("zIndex", 200);
+    j$('.store-slider-container').show();
     StoreItemsSlider.showing = true;
   },
 
   isNodePresent: function(node) {
-    return $('.store-slider-container *').get().indexOf(node) > -1;
+    return j$('.store-slider-container *').get().indexOf(node) > -1;
   },
 
   bindEvents: function() {
 
-    $('#store-slider > li')
+    j$('#store-slider > li')
       .mouseenter(function() {
-        $(this).find('a.store-item-link').css('color', StoreItemsSlider.redColor);
-        $(this).find('img.store-item-img').css("box-shadow", "2px 2px 2px " + StoreItemsSlider.redColor);
+        j$(this).find('a.store-item-link').css('color', StoreItemsSlider.redColor);
+        j$(this).find('img.store-item-img').css("box-shadow", "2px 2px 2px " + StoreItemsSlider.redColor);
       })
       .mouseleave(function() {
-        $(this).find('a.store-item-link').css('color', StoreItemsSlider.black);
-        $(this).find('img.store-item-img').css("box-shadow", "2px 2px 2px " + StoreItemsSlider.grey);
+        j$(this).find('a.store-item-link').css('color', StoreItemsSlider.black);
+        j$(this).find('img.store-item-img').css("box-shadow", "2px 2px 2px " + StoreItemsSlider.grey);
       });
 
-    $(".home,.store-slider-container")
+    j$(".home,.store-slider-container")
       .mouseenter(function() {
         StoreItemsSlider.show();
       })
@@ -63,7 +63,7 @@ var StoreItemsSlider = {
         }
       });
 
-    $(".home").click(function(e) {
+    j$(".home").click(function(e) {
       if (StoreItemsSlider.showing)
         StoreItemsSlider.hide();
       else
@@ -72,12 +72,12 @@ var StoreItemsSlider = {
     });
 
 
-    $("#store-slider-prev").bind("click", function(event) {
+    j$("#store-slider-prev").bind("click", function(event) {
       StoreItemsSlider.slideRight();
       event.stopPropagation();
     });
 
-    $("#store-slider-next").bind("click", function(event) {
+    j$("#store-slider-next").bind("click", function(event) {
       StoreItemsSlider.slideLeft();
       event.stopPropagation();
     });
@@ -86,10 +86,10 @@ var StoreItemsSlider = {
 
   init: function() {
 
-    var listItem = $("ul#store-slider li");
-    var storeSlider = $("ul#store-slider");
+    var listItem = j$("ul#store-slider li");
+    var storeSlider = j$("ul#store-slider");
     this.listItemWidth = listItem.outerWidth() + parseInt(listItem.css('margin-right'));
-    this.storeItemsCount = $('ul#store-slider').children().length;
+    this.storeItemsCount = j$('ul#store-slider').children().length;
     this.actualWidth = this.listItemWidth * this.storeItemsCount;
     this.visibleWidth = storeSlider.outerWidth();
     this.maxMargin = 0;
@@ -103,7 +103,7 @@ var StoreItemsSlider = {
     this.currMarginLeft = (intendedMargin > this.minMargin) ? intendedMargin : this.minMargin;
     this.currMarginLeft = (this.currMarginLeft - this.minMargin) < 50 ? this.minMargin : this.currMarginLeft;
 
-    $("ul#store-slider").animate({
+    j$("ul#store-slider").animate({
       marginLeft: this.currMarginLeft + "px"
     }, 1000);
   },
@@ -113,7 +113,7 @@ var StoreItemsSlider = {
     var intendedMargin = this.currMarginLeft + this.listItemWidth;
     this.currMarginLeft = (intendedMargin < this.maxMargin) ? intendedMargin : this.maxMargin;
     this.currMarginLeft = this.currMarginLeft > -50 ? this.maxMargin : this.currMarginLeft;
-    $("ul#store-slider").animate({
+    j$("ul#store-slider").animate({
       marginLeft: this.currMarginLeft + "px"
     }, 1000);
   },

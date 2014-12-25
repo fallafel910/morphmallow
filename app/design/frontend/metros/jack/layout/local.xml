@@ -12,9 +12,14 @@
             </action>
             <action method="addItem">
                 <type>skin_js</type>
-                <name>js/jquery-1.7.2.min.js</name>
+                <name>js/videoChannel/jquery.min.js</name>
                 <params/>
             </action>
+            <!-- <action method="addItem">
+                <type>skin_js</type>
+                <name>js/jquery-1.7.2.min.js</name>
+                <params/>
+            </action> -->
             <action method="addItem">
                 <type>skin_js</type>
                 <name>bxslider/js/jquery.easing.1.3.js</name>
@@ -30,6 +35,57 @@
             <action method="addItem">
                 <type>skin_js</type>
                 <name>js/script.js</name>
+                <params/>
+            </action>
+
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/videoChannel/bootstrap.min.js</name>
+                <params/>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/videoChannel/videosGridView.js</name>
+                <params/>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/videoChannel/videoHandler.js</name>
+                <params/>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/videoChannel/storeSlider.js</name>
+                <params/>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/videoChannel/scripts.js</name>
+                <params/>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/videoChannel/jquery.min.js</name>
+                <params/>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/videoChannel/masonry.pkgd.min.js</name>
+                <params/>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/videoChannel/imagesloaded.js</name>
+                <params/>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/videoChannel/classie.js</name>
+                <params/>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/videoChannel/AnimOnScroll.js</name>
                 <params/>
             </action>
 

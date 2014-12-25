@@ -70,15 +70,15 @@ var VideoObject = function(videoId, thumbnails, videoTitle) {
 
 var buildGridView = function(url) {
 
-  $.getJSON(url, function(data) {
+  j$.getJSON(url, function(data) {
 
     var videoId;
     var videoObject;
     var item;
     var items = data.items;
     var nextPageToken = data.nextPageToken;
-    for (item_index in items) {
-      item = items[item_index];
+    for(var i=0; i < items.length; i++){
+      item = items[i];
       videoObject = new Object();
       videoId = item.id.videoId;
 
@@ -123,7 +123,7 @@ var GridView = {
   print: function() {},
 
   populate: function() {
-    for (i in videosList) {
+    for(var i = 0; i < videosList.length; i++){
       var divId = "video-" + i;
       var videoId = videosList[i].getId();
       var videoTitle = videosList[i].getTitle();
@@ -138,8 +138,8 @@ var GridView = {
 
   addVideoDiv: function(divId, videoId, vidTitle, videoThumbnail) {
 
-    var gridView = $('#videos-grid-view');
-    var vidView = $(this.videoViewHtml);
+    var gridView = j$('#videos-grid-view');
+    var vidView = j$(this.videoViewHtml);
 
     vidView.children('.video-view').attr('id', divId);
     vidView.children('.video-thumbnail').attr('id', 'thumbnail-' + divId);
@@ -158,27 +158,27 @@ var NavController = {
   updateLinks: function() {
 
     var updateHomeLink = function() {
-      $('#top-menu-title').html(VideoHandler.getCurrent().getClippedTitle(40));
+      j$('#top-menu-title').html(VideoHandler.getCurrent().getClippedTitle(40));
     };
 
     var updateNext = function(video) {
-      $('#showNext').css("background", 'url(' + video.getHdView() + ') no-repeat center');
-      $('#nextVideoTitle').html(video.getClippedTitle());
+      j$('#showNext').css("background", 'url(' + video.getHdView() + ') no-repeat center');
+      j$('#nextVideoTitle').html(video.getClippedTitle());
     };
 
     var updatePrev = function(video) {
 
-      $('#showPrev').css("background", 'url(' + video.getHdView() + ') no-repeat center');
-      $('#prevVideoTitle').html(video.getClippedTitle());
+      j$('#showPrev').css("background", 'url(' + video.getHdView() + ') no-repeat center');
+      j$('#prevVideoTitle').html(video.getClippedTitle());
     };
 
     updateHomeLink();
     updateNext(VideoHandler.getNext());
     updatePrev(VideoHandler.getPrev());
-    $('#player').hide();
-    $('#fullscreen').hide();
-    $('#play').show();
-    $('.playable-element').trigger('click');
+    j$('#player').hide();
+    j$('#fullscreen').hide();
+    j$('#play').show();
+    j$('.playable-element').trigger('click');
   }
 
 }
@@ -193,20 +193,20 @@ var VideoSlider = {
   maxMargin: 0,
 
   populate: function() {
-    $('#top-menu-title').html(VideoHandler.getCurrent().getClippedTitle(40));
+    j$('#top-menu-title').html(VideoHandler.getCurrent().getClippedTitle(40));
     var listItemHtml = "<li> <div class='slider-item-container' >" +
       "<div class='slider-video-title-container'>" +
       "<div class='slider-video-title center-me'> </div> </div>" +
       "<img class='slider-item-thumbnail below'/>" +
       "</div> </li>";
 
-    var sliderView = $('#video-list-slider');
+    var sliderView = j$('#video-list-slider');
     var listViewItem;
     var videoObject;
 
     for (var i = 0; i < VideoHandler.size(); i++) {
 
-      listViewItem = $(listItemHtml);
+      listViewItem = j$(listItemHtml);
       videoObject = VideoHandler.getFromIndex(i);
 
       listViewItem.find('.slider-video-title').html(videoObject.getTitle());
@@ -227,21 +227,21 @@ var VideoSlider = {
 
   bindEvents: function() {
 
-    $(window).resize(function() {
+    j$(window).resize(function() {
       VideoSlider.refreshSlider();
     });
 
-    $('.slider-video-title-container')
+    j$('.slider-video-title-container')
       .mouseenter(function() {
-        $('.slider-item-container, .slider-button').css('margin-top', 30);
-        $('.slide-toggle .glyphicon').css('top', '-250px');
+        j$('.slider-item-container, .slider-button').css('margin-top', 30);
+        j$('.slide-toggle .glyphicon').css('top', '-250px');
       });
 
 
-    $('.slider-item-container')
+    j$('.slider-item-container')
       .mouseenter(function(e) {
         VideoSlider.init();
-        $(this).css('margin-top', 0);
+        j$(this).css('margin-top', 0);
 
       })
       .mousemove(function(e) {
@@ -259,31 +259,31 @@ var VideoSlider = {
 
       })
       .mouseleave(function() {
-        $(this).css('margin-top', 30);
+        j$(this).css('margin-top', 30);
       });
 
 
-    $('.slider-container')
+    j$('.slider-container')
       .mouseleave(function() {
-        $('.slider-item-container, .slider-button').css('margin-top', 150);
-        $('.slide-toggle .glyphicon').css('top', '-100px');
+        j$('.slider-item-container, .slider-button').css('margin-top', 150);
+        j$('.slide-toggle .glyphicon').css('top', '-100px');
       });
 
 
-    $("#slider-prev-button").bind("click", function(event) {
+    j$("#slider-prev-button").bind("click", function(event) {
 
       VideoSlider.slideRight();
       event.stopPropagation();
     });
 
-    $("#slider-next-button").bind("click", function(event) {
+    j$("#slider-next-button").bind("click", function(event) {
       VideoSlider.slideLeft();
       event.stopPropagation();
     });
 
-    $("#video-list-slider li").bind("click", function(event) {
+    j$("#video-list-slider li").bind("click", function(event) {
       event.stopPropagation();
-      var videoid = $(event.target).parent().attr('videoid');
+      var videoid = j$(event.target).parent().attr('videoid');
       var video = VideoHandler.rollToIndex(videoid);
       NavController.updateLinks();
     });
@@ -292,11 +292,11 @@ var VideoSlider = {
 
   init: function() {
 
-    var listItem = $("ul#video-list-slider li");
-    var slider = $("ul#video-list-slider");
+    var listItem = j$("ul#video-list-slider li");
+    var slider = j$("ul#video-list-slider");
     this.listItemWidth = listItem.outerWidth() + parseInt(listItem.css('margin-right'));
     this.listItemWidth = listItem[0].getBoundingClientRect().width + parseInt(listItem.css('margin-right'));
-    this.videosCount = $('ul#video-list-slider').children().length;
+    this.videosCount = j$('ul#video-list-slider').children().length;
 
     this.actualWidth = this.listItemWidth * this.videosCount;
     this.visibleWidth = slider.outerWidth();
@@ -307,7 +307,7 @@ var VideoSlider = {
   },
 
   refreshMarginLeft: function() {
-    $("ul#video-list-slider").css('margin-left', this.currMarginLeft);
+    j$("ul#video-list-slider").css('margin-left', this.currMarginLeft);
   },
 
   slide: function(marginLeft) {
@@ -322,7 +322,7 @@ var VideoSlider = {
     var intendedMargin = this.currMarginLeft - this.listItemWidth;
     this.currMarginLeft = (intendedMargin > this.minMargin) ? intendedMargin : this.minMargin;
 
-    $("ul#video-list-slider").animate({
+    j$("ul#video-list-slider").animate({
       marginLeft: this.currMarginLeft + "px"
     }, 1000);
   },
@@ -330,7 +330,7 @@ var VideoSlider = {
     this.init();
     var intendedMargin = this.currMarginLeft + this.listItemWidth;
     this.currMarginLeft = (intendedMargin < this.maxMargin) ? intendedMargin : this.maxMargin;
-    $("ul#video-list-slider").animate({
+    j$("ul#video-list-slider").animate({
       marginLeft: this.currMarginLeft + "px"
     }, 1000);
   },
@@ -349,9 +349,9 @@ var ThumbnailPlayerView = function(divId, videoId, videoThumbnail) {
   this.playerId = divId;
   this.videoId = videoId;
   this.vidPlayer;
-  this.thumbnailView = $('#thumbnail-' + this.playerId);
-  this.playerIconView = $('#playIcon-' + this.playerId);
-  this.videoView = $('#' + this.playerId);
+  this.thumbnailView = j$('#thumbnail-' + this.playerId);
+  this.playerIconView = j$('#playIcon-' + this.playerId);
+  this.videoView = j$('#' + this.playerId);
 
 
   this.createVideoThumbnailView = function() {
@@ -362,7 +362,7 @@ var ThumbnailPlayerView = function(divId, videoId, videoThumbnail) {
       event.stopPropagation();
       var video = VideoHandler.rollToIndex(self.videoId);
       NavController.updateLinks();
-      // $('.slide-toggle').trigger('click');
+      // j$('.slide-toggle').trigger('click');
     });
     self.videoView.hide();
   };
@@ -371,7 +371,7 @@ var ThumbnailPlayerView = function(divId, videoId, videoThumbnail) {
   //   self.vidPlayer.stopVideo();
   //   self.thumbnailView.show();
   //   self.playerIconView.show();
-  //   $('#' + self.playerId).replaceWith("<div class='video-view' id='" + self.playerId + "'></div>");
+  //   j$('#' + self.playerId).replaceWith("<div class='video-view' id='" + self.playerId + "'></div>");
   //   self.videoView.hide();
   //   self.vidPlayer = null;
   // };
@@ -388,7 +388,7 @@ var ThumbnailPlayerView = function(divId, videoId, videoThumbnail) {
   //     } else if (event.data == YT.PlayerState.PLAYING) {
 
   //     } else if (event.data == YT.PlayerState.BUFFERING) {
-  //       $("#" + this.playerId).siblings(".video-title-container").hide();
+  //       j$("#" + this.playerId).siblings(".video-title-container").hide();
   //     } else if (event.data == YT.PlayerState.CUED) {
 
   //     }

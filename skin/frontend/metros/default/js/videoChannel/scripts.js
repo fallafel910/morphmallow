@@ -1,12 +1,12 @@
-$(document).ready(function(){
+j$(document).ready(function(){
     StoreItemsSlider.populate();
     SpriteToolBar.init();
-    $(document).click(function(e) {
-      if($(e.target).hasClass("slide-toggle-glyphicon"))
+    j$(document).click(function(e) {
+      if(j$(e.target).hasClass("slide-toggle-glyphicon"))
         return;
-      if($(e.target).parents(".video-grid-wrapper").length == 0 && !$(e.target).hasClass("video-grid-wrapper")){
-        $('.video-list').removeClass('video-list-active');
-        $('.slide-toggle').removeClass('top-50');
+      if(j$(e.target).parents(".video-grid-wrapper").length == 0 && !j$(e.target).hasClass("video-grid-wrapper")){
+        j$('.video-list').removeClass('video-list-active');
+        j$('.slide-toggle').removeClass('top-50');
       }
     });
   });
@@ -17,22 +17,26 @@ var SpriteToolBar = {
   showing : false,
 
   show: function(){
-    $('.shareImg').css('background', "url('images/share_menu_icon_selected-md.png') no-repeat center");
-    $('.shareImg').css('background-color', "white");
-    $('#sprite-list').show();
+    // j$('.shareImg').css('background', "url('images/share_menu_icon_selected-md.png') no-repeat center");
+    // j$('.shareImg').css('background-color', "white");
+    j$('.shareImg').addClass("shareImg-selected");
+    j$('.shareImg').removeClass("shareImg-not-selected");
+    j$('#sprite-list').show();
     SpriteToolBar.showing = true;
   },
 
   hide: function(){
-    $('.shareImg').css('background', "url('images/share_menu_icon-md.png') no-repeat center");
-    $('.shareImg').css('background-color', StoreItemsSlider.redColor);
-    $('#sprite-list').hide();
+    j$('.shareImg').addClass("shareImg-not-selected");
+    j$('.shareImg').removeClass("shareImg-selected");
+    // j$('.shareImg').css('background', "url('images/share_menu_icon-md.png') no-repeat center");
+    // j$('.shareImg').css('background-color', StoreItemsSlider.redColor);
+    j$('#sprite-list').hide();
     SpriteToolBar.showing = false;
   },
 
   init : function() {
 
-    $("#sprite-list,.shareImg")
+    j$("#sprite-list,.shareImg")
     .mouseenter(function() {
       SpriteToolBar.show();
     })
@@ -40,7 +44,7 @@ var SpriteToolBar = {
        SpriteToolBar.hide();
     });
 
-    $(".shareImg").click(function(event){
+    j$(".shareImg").click(function(event){
         //event.stopPropagation();
         if(SpriteToolBar.showing)
           SpriteToolBar.hide();
@@ -50,8 +54,8 @@ var SpriteToolBar = {
   }
 }
  
- var recievedYoutubeJson = new $.Deferred();
- $.when(recievedYoutubeJson).done(function() {
+ var recievedYoutubeJson = new j$.Deferred();
+ j$.when(recievedYoutubeJson).done(function() {
    postYouTubePlayerReady();
    setUpPlayer();
  });
@@ -60,62 +64,62 @@ var SpriteToolBar = {
    updateNext(VideoHandler.getNext());
    updatePrev(VideoHandler.getPrev());
 
-   $('#next').on({
+   j$('#next').on({
      mouseenter: function() {
-       $('#next').addClass("fillParent");
-       $('.next-hover').css('z-index',100);
-       $('.next-video').addClass("slideLeft");
-       $('.next-video').show();
+       j$('#next').addClass("fillParent");
+       j$('.next-hover').css('z-index',100);
+       j$('.next-video').addClass("slideLeft");
+       j$('.next-video').show();
      }
    });
 
-   $('.next-hover').on({
+   j$('.next-hover').on({
      mouseleave: function() {
-       $('.next-video').hide();
-       $('#next').removeClass("fillParent");
-       $('.next-hover').css('z-index',"auto");
+       j$('.next-video').hide();
+       j$('#next').removeClass("fillParent");
+       j$('.next-hover').css('z-index',"auto");
      }
    });
 
-   $('#prev').on({
+   j$('#prev').on({
      mouseenter: function() {
-       $('#prev').addClass("fillParent");
-       $('.prev-hover').css('z-index',100);
-       $('.prev-video').addClass("slideRight");
-       $('.prev-video').show();
+       j$('#prev').addClass("fillParent");
+       j$('.prev-hover').css('z-index',100);
+       j$('.prev-video').addClass("slideRight");
+       j$('.prev-video').show();
      }
    });
 
-   $('.prev-hover').on({
+   j$('.prev-hover').on({
      mouseleave: function() {
-       $('.prev-video').hide();
-       $('#prev').removeClass("fillParent");
-       $('.prev-hover').css('z-index',"auto");
+       j$('.prev-video').hide();
+       j$('#prev').removeClass("fillParent");
+       j$('.prev-hover').css('z-index',"auto");
      }
    });
 
-   $('#next, .next-video').on('click', function(event) {
+   j$('#next, .next-video').on('click', function(event) {
      VideoHandler.next();
      updateAllThumbnails();
-     $('.playable-element').trigger('click');
+     j$('.playable-element').trigger('click');
      //event.stopPropagation();
    });
 
-   $('#prev, .prev-video').on('click', function(event) {
+   j$('#prev, .prev-video').on('click', function(event) {
      VideoHandler.prev();
      updateAllThumbnails();
-     $('.playable-element').trigger('click');
+     j$('.playable-element').trigger('click');
      //event.stopPropagation();
    });
 
-   /*$('.share').on({
+   /*j$('.share').on({
     mouseenter: function() {
-      $('#share-icon').attr('src', 'images/share_menu_icon_selected-md.png');
-      $('#share-menu').show();
+      j$('#share-icon').attr('src', 'images/share_menu_icon_selected-md.png');
+      j$('#share-menu').show();
     },
     mouseleave: function() {
-      $('#share-icon').attr('src', 'images/share_menu_icon-md.png');
-      $('#share-menu').hide();
+      j$('#share-icon').attr('src', 'images/share_menu_icon-md.png');
+      j$('#share-menu').hide();
     },
     click: function(e) {
       e.stopPropagation();
@@ -123,33 +127,33 @@ var SpriteToolBar = {
    });*/
 
    function _topMenuTitle() {
-     $('#top-menu-title').html(VideoHandler.getCurrent().getClippedTitle(40));
+     j$('#top-menu-title').html(VideoHandler.getCurrent().getClippedTitle(40));
    }
 
    function updateAllThumbnails() {
-     $('#thumbnail').show();
+     j$('#thumbnail').show();
      _topMenuTitle();
      updateNext(VideoHandler.getNext());
      updatePrev(VideoHandler.getPrev());
-     $('#player').hide();
-     $('#fullscreen').hide();
-     $('#play').show();
+     j$('#player').hide();
+     j$('#fullscreen').hide();
+     j$('#play').show();
      stopVideo();
    }
 
-   $('.slide-toggle').on('click', function(e) {
+   j$('.slide-toggle').on('click', function(e) {
     new AnimOnScroll(document.getElementById('videos-grid-view'), {
       minDuration: 0.4,
       maxDuration: 0.7,
       viewportFactor: 0.2
     });
-    if(!($('.video-list').hasClass('video-list-active')))
+    if(!(j$('.video-list').hasClass('video-list-active')))
       updateAllThumbnails();
     else
       GridView.setCurrentVideo();
 
-     $('.video-list').toggleClass('video-list-active');
-     $('.slide-toggle').toggleClass('top-50');
+     j$('.video-list').toggleClass('video-list-active');
+     j$('.slide-toggle').toggleClass('top-50');
      
    });
  }
@@ -159,7 +163,7 @@ var SpriteToolBar = {
 
  var player;
  //var playerArea = document.getElementById("video-container");
- var playerArea = $(".playable-element");
+ var playerArea = j$(".playable-element");
  var nextButton = document.getElementById("next");
  var prevButton = document.getElementById("prev");
  var thumbnail = document.getElementById("thumbnail");
@@ -212,7 +216,7 @@ var SpriteToolBar = {
   } else if (event.data == YT.PlayerState.PLAYING) {
 
   } else if (event.data == YT.PlayerState.BUFFERING) {
-    $("#" + this.playerId).siblings(".video-title-container").hide();
+    j$("#" + this.playerId).siblings(".video-title-container").hide();
   } else if (event.data == YT.PlayerState.CUED) {
 
   }
@@ -223,11 +227,11 @@ var SpriteToolBar = {
  }
 
  function updateNext(video) {
-   $('#showNext').css("background", 'url(' + video.getHdView() + ') no-repeat center');
-   $('#nextVideoTitle').html(video.getClippedTitle());
+   j$('#showNext').css("background", 'url(' + video.getHdView() + ') no-repeat center');
+   j$('#nextVideoTitle').html(video.getClippedTitle());
  }
 
  function updatePrev(video) {
-   $('#showPrev').css("background", 'url(' + video.getHdView() + ') no-repeat center');
-   $('#prevVideoTitle').html(video.getClippedTitle());
+   j$('#showPrev').css("background", 'url(' + video.getHdView() + ') no-repeat center');
+   j$('#prevVideoTitle').html(video.getClippedTitle());
  }
