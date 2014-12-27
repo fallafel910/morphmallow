@@ -22,7 +22,7 @@ var StoreItemsSlider = {
     if (!StoreItemsSlider.showing)
       return;
     $(".home").css('background', "rgb(241,92,83)");
-    $('.home img').attr('src', 'images/store_icon-md.png');
+    $('.home img').attr('src', j$('body').attr('skin-url') + 'images/store_icon-md.png');
     $('.store-slider-container').hide();
     StoreItemsSlider.showing = false;
   },
@@ -31,7 +31,7 @@ var StoreItemsSlider = {
     if (StoreItemsSlider.showing)
       return;
     $(".home").css('background', "white");
-    $('.home img').attr('src', 'images/home_hover-md.png');
+    $('.home img').attr('src', '/../../images/home_hover-md.png');
     $('.store-slider-container').css("zIndex", 200);
     $('.store-slider-container').show();
     StoreItemsSlider.showing = true;

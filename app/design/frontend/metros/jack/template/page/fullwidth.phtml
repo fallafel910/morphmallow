@@ -41,16 +41,17 @@
     <div class="page">
         <?php echo $this->getChildHtml('header') ?>
         <?php echo $this->getChildHtml('global_messages') ?>
-        <div id="video-container">
+        <div id="video-container" skin-url="<?php echo $this->getSkinUrl(); ?>">
   <div id="top-menu">
     <div class="top-menu-inner-container">
       <ul id="home-menu-ul" class="list-inline">
-        <li class="home">
+        <li class="home" >
+          <img class="center-me" src="<?php echo $this->getSkinUrl('images/store_icon-md.png'); ?>">
         </li>
         <li class="share">
 
           <div class="share-menu-holder pull-right">
-            <span class="shareImg"></span>
+            <span class="shareImg shareImg-not-selected"></span>
             <div id="share-menu">
               <ul class="list-inline" id="sprite-list">
                 <li>
@@ -78,7 +79,7 @@
         <ul id="store-slider">
           <li>
             <div class="store-list-item-container">
-              <img src="store-images/store1-hi.png" class="store-item-img" />
+              <img src="<?php echo $this->getSkinUrl('images/store-images/store1-hi.png'); ?>" class="store-item-img" />
               <a href="#" class="store-item-link"> Spaghetti Headz Christmas Pack</a>
               <h3 class="store-item-price"> $ 43</h3>
             </div>
@@ -86,7 +87,7 @@
 
           <li>
             <div class="store-list-item-container">
-              <img src="store-images/store2-hi.png" class="store-item-img" />
+              <img src="<?php echo $this->getSkinUrl('images/store-images/store2-hi.png'); ?>" class="store-item-img" />
               <div class="inline-block"><a href="#" class="store-item-link"> Spaghetti Headz Lucky Charms 3-Pack</a>
                 <h3 class="store-item-price"> $ 81</h3> </div>
             </div>
@@ -94,7 +95,7 @@
 
           <li>
             <div class="store-list-item-container">
-              <img src="store-images/store3-hi.png" class="store-item-img" />
+              <img src="<?php echo $this->getSkinUrl('images/store-images/store3-hi.png'); ?>" class="store-item-img" />
               <a href="#" class="store-item-link"> Spaghetti Headz Christmas Pack</a>
               <h3 class="store-item-price"> Rs 81</h3>
             </div>
@@ -102,7 +103,7 @@
 
           <li>
             <div class="store-list-item-container">
-              <img src="store-images/store4-hi.png" class="store-item-img" />
+              <img src="<?php echo $this->getSkinUrl('images/store-images/store4-hi.png'); ?>" class="store-item-img" />
               <a href="#" class="store-item-link"> Spaghetti Headz Christmas Pack</a>
               <h3 class="store-item-price"> Rs 100</h3>
             </div>
@@ -110,7 +111,7 @@
 
           <li>
             <div class="store-list-item-container">
-              <img src="store-images/store1-hi.png" class="store-item-img" />
+              <img src="<?php echo $this->getSkinUrl('images/store-images/store1-hi.png'); ?>" class="store-item-img" />
               <a href="#" class="store-item-link"> Spaghetti Headz Christmas Pack</a>
               <h3 class="store-item-price"> $ 43</h3>
             </div>
@@ -118,7 +119,7 @@
 
           <li>
             <div class="store-list-item-container">
-              <img src="store-images/store1-hi.png" class="store-item-img" />
+              <img src="<?php echo $this->getSkinUrl('images/store-images/store1-hi.png'); ?>" class="store-item-img" />
               <a href="#" class="store-item-link"> Spaghetti Headz Christmas Pack</a>
               <h3 class="store-item-price"> $ 43</h3>
             </div>
@@ -126,7 +127,7 @@
 
           <li>
             <div class="store-list-item-container">
-              <img src="store-images/store1-hi.png" class="store-item-img" />
+              <img src="<?php echo $this->getSkinUrl('images/store-images/store1-hi.png'); ?>" class="store-item-img" />
               <a href="#" class="store-item-link"> Spaghetti Headz Christmas Pack</a>
               <h3 class="store-item-price"> $ 43</h3>
             </div>
@@ -137,8 +138,12 @@
     </div>
   </div>
 
-  <div id="play" class="playable-element control-button"></div>
-  <div id="thumbnail" class="playable-element"></div>
+  <div id="play" class="playable-element control-button">
+      <img src="<?php echo $this->getSkinUrl('images/play_video_icon-hi.png'); ?>">
+    </div>
+    <div id="thumbnail" class="playable-element">
+      <img src="<?php echo $this->getSkinUrl('images/coverthumbnail.png'); ?>">
+    </div>
   <div id="player" style="display:none"></div>
   <div id="fullscreen" class="control-button"></div>
 

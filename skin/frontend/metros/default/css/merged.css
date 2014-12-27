@@ -129,7 +129,7 @@ body {
 #video-container {
   position: relative;
   cursor: pointer;
-  height: 650px;
+  height: 600px;
 }
 #showNext, #showPrev {
   background-size: 100% 100% !important;
@@ -353,11 +353,10 @@ ul#home-menu-ul {
   height: 100%;
 }
 #top-menu ul.list-inline li.home {
-  padding: 5px 51px;
+  padding: 5px 32px;
   text-align: center;
   vertical-align: top;
   border-right: 1px solid white;
-  background: url(../images/store_icon-md.png) no-repeat center;
 }
 #top-menu ul.list-inline li p.title {
   width: 200px;
@@ -444,7 +443,7 @@ ul#home-menu-ul {
 li.share .shareImg {
   background: url('../images/share_menu_icon-md.png') no-repeat;
   width: 30px;
-  height: 100%;
+  height: 40px;
   display: block;
   background-position: 50%;
 }
@@ -668,7 +667,7 @@ a.store-item-link{
 
 .slider-container {
   position: absolute;
-  bottom: 0px;
+  bottom: 50px;
   width: 100%;
   height: 200px;
   overflow: hidden;

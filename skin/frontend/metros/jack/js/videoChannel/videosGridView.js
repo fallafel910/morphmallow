@@ -5,9 +5,12 @@ var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 var key = "AIzaSyDpzUBZmHttFZZSiI1LEY7dY1U3sR7tmaE";
+var key = "AIzaSyD47wOGZqZ3TGrbjoUdCuxgPIW609BI5_0";
 var channelId = "UCIqQhb_M6MhB2qQcfUGDfJg";
 var query_url = "https://www.googleapis.com/youtube/v3/search?key=" + key + "&channelId=" + channelId + "&part=snippet,id&order=date&maxResults=50";
 var videosList = new Array();
+
+var tilesIconInitPos = "-145px";
 
 
 var VideoObject = function(videoId, thumbnails, videoTitle) {
@@ -70,8 +73,9 @@ var VideoObject = function(videoId, thumbnails, videoTitle) {
 
 var buildGridView = function(url) {
 
+  console.log("going to make request to: "+url);
   j$.getJSON(url, function(data) {
-
+    console.log("got JSON "+data);
     var videoId;
     var videoObject;
     var item;
@@ -93,36 +97,45 @@ var buildGridView = function(url) {
       getvideosList(query_url_new);
     } else {
       VideoHandler.populate(videosList);
-      VideoSlider.populate();
-      GridView.populate();
+      j$.when(isDocumentReady).done(function(){
+        VideoSlider.populate();
+        GridView.populate();
+
+      });
+      
     }
     recievedYoutubeJson.resolve();
+    //postYouTubePlayerReady();
+    //setUpPlayer();
 
+  }).fail(function(){
+    console.log("Youtube API call failed");
   });
-  new AnimOnScroll(document.getElementById('videos-grid-view'), {
-    minDuration: 0.4,
-    maxDuration: 0.7,
-    viewportFactor: 0.2
-  });
-  return recievedYoutubeJson;
+  // new AnimOnScroll(document.getElementById('videos-grid-view'), {
+  //   minDuration: 0.4,
+  //   maxDuration: 0.7,
+  //   viewportFactor: 0.2
+  // });
+return recievedYoutubeJson;
 }
 
 
 var GridView = {
 
   videoViewHtml: "<li class='col-md-3 col-sm-6 col-xs-12 video-container'> " +
-    " <div class='video-title-container'> " +
-    " <div class='video-title center-me'></div> </div>" +
-    " <div class='video-thumbnail'></div> " +
-    " <div class='video-playIcon'></div> " +
-    " <div class='video-view'> " +
-    " </div> </li>",
+  " <div class='video-title-container'> " +
+  " <div class='video-title center-me'></div> </div>" +
+  " <div class='video-thumbnail'></div> " +
+  " <div class='video-playIcon'></div> " +
+  " <div class='video-view'> " +
+  " </div> </li>",
 
   thumbnailObject: undefined,
 
   print: function() {},
 
   populate: function() {
+    console.log("I am trying to populte videos");
     for(var i = 0; i < videosList.length; i++){
       var divId = "video-" + i;
       var videoId = videosList[i].getId();
@@ -195,12 +208,13 @@ var VideoSlider = {
   populate: function() {
     j$('#top-menu-title').html(VideoHandler.getCurrent().getClippedTitle(40));
     var listItemHtml = "<li> <div class='slider-item-container' >" +
-      "<div class='slider-video-title-container'>" +
-      "<div class='slider-video-title center-me'> </div> </div>" +
-      "<img class='slider-item-thumbnail below'/>" +
-      "</div> </li>";
+    "<div class='slider-video-title-container'>" +
+    "<div class='slider-video-title center-me'> </div> </div>" +
+    "<img class='slider-item-thumbnail below'/>" +
+    "</div> </li>";
 
     var sliderView = j$('#video-list-slider');
+    console.log("VideoSlider.poupulate ->sliderViwew " +sliderView);
     var listViewItem;
     var videoObject;
 
@@ -232,22 +246,22 @@ var VideoSlider = {
     });
 
     j$('.slider-video-title-container')
-      .mouseenter(function() {
-        j$('.slider-item-container, .slider-button').css('margin-top', 30);
-        j$('.slide-toggle .glyphicon').css('top', '-250px');
-      });
+    .mouseenter(function() {
+      j$('.slider-item-container, .slider-button').css('margin-top', 30);
+      j$('.slide-toggle .glyphicon').css('top', '-290px');
+    });
 
 
     j$('.slider-item-container')
-      .mouseenter(function(e) {
-        VideoSlider.init();
-        j$(this).css('margin-top', 0);
+    .mouseenter(function(e) {
+      VideoSlider.init();
+      j$(this).css('margin-top', 0);
 
-      })
-      .mousemove(function(e) {
+    })
+    .mousemove(function(e) {
 
-        var carouselPadding = 100;
-        var x = e.pageX - this.offsetLeft;
+      var carouselPadding = 100;
+      var x = e.pageX - this.offsetLeft;
 
         // console.log("x: " + x);
 
@@ -258,16 +272,16 @@ var VideoSlider = {
         }
 
       })
-      .mouseleave(function() {
-        j$(this).css('margin-top', 30);
-      });
+    .mouseleave(function() {
+      j$(this).css('margin-top', 30);
+    });
 
 
     j$('.slider-container')
-      .mouseleave(function() {
-        j$('.slider-item-container, .slider-button').css('margin-top', 150);
-        j$('.slide-toggle .glyphicon').css('top', '-100px');
-      });
+    .mouseleave(function() {
+      j$('.slider-item-container, .slider-button').css('margin-top', 150);
+      j$('.slide-toggle .glyphicon').css('top', tilesIconInitPos);
+    });
 
 
     j$("#slider-prev-button").bind("click", function(event) {
