@@ -197,6 +197,7 @@ var player;
  }
 
  function onPlayerReady(event) {
+  
   j$.when(recievedYoutubeJson).done(function(){
     playerArea = j$(".playable-element");
     nextButton = document.getElementById("next");
@@ -206,7 +207,6 @@ var player;
       document.getElementById("play").style.display = "none";
       thumbnail.style.display = "none";
       document.getElementById("player").style.display = "block";
-      document.getElementById("fullscreen").style.display = "block";
 
       event.target.loadVideoById({
         videoId: VideoHandler.getCurrent().videoId
