@@ -621,6 +621,7 @@ ul#store-slider {
 ul#store-slider li{
   font-size: 10px;
   width:200px;
+  height:100%;
   white-space: normal;
   display: inline-block;
   vertical-align: top;
@@ -637,8 +638,9 @@ ul#store-slider li div h3.store-item-price{
   font-size: 12px;
 }
 
-.store-list-item-container *{
+.store-list-item-container {
   text-align: left;
+  height:100%;
 }
 
 ul#store-slider li div img.store-item-img {
@@ -651,7 +653,7 @@ ul#store-slider li div img.store-item-img {
   border-width: 2px;
   box-shadow: 2px 2px 2px rgb(180,180,180);
   border-radius: 2px;
-  height: 66%;
+  height: 70%;
   width:90%;
 }
 
