@@ -297,7 +297,7 @@ body {
   width: 95%;
 }
 .video-list-active {
-  top: 60%;
+  top: 70%;
 }
 .video-list-active .toggle-content {
   display: block;
@@ -673,11 +673,9 @@ a.store-item-link{
   text-decoration: underline;
 }
 
-
-
 .slider-container {
   position: absolute;
-  bottom: 45px;
+  /*bottom: 50px;*/
   width: 100%;
   height: 200px;
   overflow: hidden;

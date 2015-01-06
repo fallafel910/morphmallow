@@ -132,10 +132,17 @@ var GridView = {
 
   thumbnailObject: undefined,
 
-  print: function() {},
+  init: function() {
+    var footerHeight = j$(".footer-block").height();
+    
+    if(j$('.video-list').hasClass('video-list-active'))
+      j$('.video-list').css('margin-bottom',footerHeight);
+    else
+      j$('.video-list').css('margin-bottom',0);
+  },
 
   populate: function() {
-    console.log("I am trying to populte videos");
+    
     for(var i = 0; i < videosList.length; i++){
       var divId = "video-" + i;
       var videoId = videosList[i].getId();
@@ -143,11 +150,23 @@ var GridView = {
       var videoThumbnail = videosList[i].getMediumView();
       this.addVideoDiv(divId, videoId, videoTitle, videoThumbnail);
     }
+
+    GridView.init();
+    GridView.bindEvents();
+  },
+
+  bindEvents : function() {
+
+    j$(window).resize(function() {
+      GridView.init();
+    });
+    
   },
 
   setCurrentVideo: function(thumbnailObject) {
     this.thumbnailObject = thumbnailObject;
   },
+
 
   addVideoDiv: function(divId, videoId, vidTitle, videoThumbnail) {
 
@@ -204,6 +223,9 @@ var VideoSlider = {
   videosCount: 0,
   minMargin: 0,
   maxMargin: 0,
+  sliderToggleTop: 0,
+  listItemHeight : 0,
+  footerHeight: 0,
 
   populate: function() {
     j$('#top-menu-title').html(VideoHandler.getCurrent().getClippedTitle(40));
@@ -214,7 +236,7 @@ var VideoSlider = {
     "</div> </li>";
 
     var sliderView = j$('#video-list-slider');
-    console.log("VideoSlider.poupulate ->sliderViwew " +sliderView);
+    //console.log("VideoSlider.poupulate ->sliderViwew " +sliderView);
     var listViewItem;
     var videoObject;
 
@@ -229,8 +251,9 @@ var VideoSlider = {
       sliderView.append(listViewItem);
     }
 
+    VideoSlider.init();
     this.bindEvents();
-
+    VideoSlider.refreshDimensions();  
   },
 
   refreshSlider: function() {
@@ -239,16 +262,31 @@ var VideoSlider = {
     this.refreshMarginLeft();
   },
 
+  refreshDimensions: function() {
+
+    var sliderContainer = j$(".slider-container");    
+    var sliderToggle = j$(".slide-toggle .glyphicon");
+
+    sliderContainer.css("bottom",this.footerHeight);
+    sliderToggle.css("top",this.sliderToggleTop);
+  },
+
   bindEvents: function() {
 
     j$(window).resize(function() {
       VideoSlider.refreshSlider();
+      VideoSlider.refreshDimensions();
     });
 
     j$('.slider-video-title-container')
     .mouseenter(function() {
+      
+      //console.log("1.toggle top: "+VideoSlider.sliderToggleTop);
+      VideoSlider.sliderToggleTop = VideoSlider.sliderToggleTop - VideoSlider.listItemHeight;
+      console.log("changing toggle top");
+      VideoSlider.refreshDimensions();
       j$('.slider-item-container, .slider-button').css('margin-top', 30);
-      j$('.slide-toggle .glyphicon').css('top', '-290px');
+      //j$('.slide-toggle .glyphicon').css('top', VideoSlider.sliderToggleTop );
     });
 
 
@@ -279,8 +317,9 @@ var VideoSlider = {
 
     j$('.slider-container')
     .mouseleave(function() {
+      VideoSlider.refreshDimensions();
       j$('.slider-item-container, .slider-button').css('margin-top', 150);
-      j$('.slide-toggle .glyphicon').css('top', tilesIconInitPos);
+      j$('.slide-toggle .glyphicon').css('top', this.sliderToggleTop);
     });
 
 
@@ -308,6 +347,16 @@ var VideoSlider = {
 
     var listItem = j$("ul#video-list-slider li");
     var slider = j$("ul#video-list-slider");
+    
+    this.footerHeight = j$(".footer-block").height();
+    this.sliderToggleTop = -(100+this.footerHeight);
+    this.listItemHeight = listItem.height();
+
+    //console.log(this.listItemHeight);
+
+    //sliderContainer.css("bottom",this.footerHeight);
+    //sliderToggle.css("top",this.sliderToggleTop);
+
     this.listItemWidth = listItem.outerWidth() + parseInt(listItem.css('margin-right'));
     this.listItemWidth = listItem[0].getBoundingClientRect().width + parseInt(listItem.css('margin-right'));
     this.videosCount = j$('ul#video-list-slider').children().length;
@@ -317,6 +366,8 @@ var VideoSlider = {
 
     this.maxMargin = 0;
     this.minMargin = this.visibleWidth - this.actualWidth;
+
+    //VideoSlider.refreshDimensions();
 
   },
 

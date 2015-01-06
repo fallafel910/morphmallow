@@ -161,7 +161,10 @@ j$('.slide-toggle').on('click', function(e) {
   else
     GridView.setCurrentVideo();
 
-  j$('.video-list').toggleClass('video-list-active');
+  j$('.video-list').toggleClass('video-list-active').promise().done(function(){
+    GridView.init();
+  });
+
   j$('.slide-toggle').toggleClass('top-50');
 
 });
